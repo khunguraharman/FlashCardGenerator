@@ -64,14 +64,14 @@ def analyze_document() -> None:
         if not check_table(paragraph=paragraph, next_table=next_table):
             if inTable:
                 inTable = False
-                raw_anki_cards.append(f"--End of Table--{next_table.row_count}x{next_table.column_count}")
+                raw_anki_cards.append(f"{AnkiCard.tableEnd}{next_table.row_count}x{next_table.column_count}")
                 table_index += 1
             append_raw_cards(paragraph, raw_anki_cards)
 
         elif check_table:
             if not inTable:
                 inTable = True
-                raw_anki_cards.append(f"--Start of Table--{next_table.row_count}x{next_table.column_count}")
+                raw_anki_cards.append(f"{AnkiCard.tableStart}{next_table.row_count}x{next_table.column_count}")
                 append_raw_cards(paragraph, raw_anki_cards)
             else:
                 concatenate_table_cells(paragraph, raw_anki_cards)
