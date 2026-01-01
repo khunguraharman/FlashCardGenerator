@@ -11,15 +11,9 @@ a. Irrigation, remove gross debris, cover with sterile permeable dressing
 6. Fracture reduction and splinting
 What is the management of tetanus status in open fractures? [Orthobullets]
 1. Dictated by immunization history and contamination of wound
-Immunization History
-Gustilo Classification Grade I
-Gustilo Classification Grade II-III
-Unknown history or <3 doses
-Give vaccine only
-Give vaccine and immune globulin
-Vaccination complete (3 prior doses)
-No prophylaxis if last dose within 10 years Give vaccine if >10 years since last dose
-No prophylaxis if last dose within 5 years Give vaccine if >5 years since last dose
+--Start of Table--3x3
+Immunization History	Gustilo Classification Grade I	Gustilo Classification Grade II-III	Unknown history or <3 doses	Give vaccine only	Give vaccine and immune globulin	Vaccination complete (3 prior doses)	No prophylaxis if last dose within 10 years Give vaccine if >10 years since last dose	No prophylaxis if last dose within 5 years Give vaccine if >5 years since last dose
+--End of Table--3x3
 a. Tetanus toxoid-containing vaccine dose is 0.5 mL intramuscular
 b. Tetanus immune globulin dose is 250 units intramuscular
 What is the Gustilo classification of open fractures? [JAAOS 2010;18:108-117] [CORR 2012; 470:3270- 3274]

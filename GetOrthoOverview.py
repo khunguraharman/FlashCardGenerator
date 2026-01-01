@@ -18,7 +18,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="18-699"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="122"
         )
     result = poller.result()
     
