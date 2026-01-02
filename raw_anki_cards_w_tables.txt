@@ -1,26 +1,4 @@
-3. Tibia canal is not patent or deformed from prior fracture
-4. Ipsilateral tibial plateau fracture
-What percentage of tibia fractures are open? [JAAOS 2010;18:108-117] 1. 24%
-What is the emergency department management of open tibial shaft fractures?
-1. ATLS and resuscitation
-2. Tetanus status
-3. Early antibiotics
-4. Neurovascular, compartment, soft tissue examination
-5. Debridement
-a. Irrigation, remove gross debris, cover with sterile permeable dressing
-6. Fracture reduction and splinting
-What is the management of tetanus status in open fractures? [Orthobullets]
-1. Dictated by immunization history and contamination of wound
---Start Table--3x3
-Immunization History	Gustilo Classification Grade I	Gustilo Classification Grade II-III	Unknown history or <3 doses	Give vaccine only	Give vaccine and immune globulin	Vaccination complete (3 prior doses)	No prophylaxis if last dose within 10 years Give vaccine if >10 years since last dose	No prophylaxis if last dose within 5 years Give vaccine if >5 years since last dose
---End Table--3x3
-a. Tetanus toxoid-containing vaccine dose is 0.5 mL intramuscular
-b. Tetanus immune globulin dose is 250 units intramuscular
-What is the Gustilo classification of open fractures? [JAAOS 2010;18:108-117] [CORR 2012; 470:3270- 3274]
-1. Type I - clean wound <1cm in length
-2. Type II - clean wound >1cm in length without extensive soft tissue damage, flaps or avulsions
-3. Type IIIA - adequate soft tissue coverage despite extensive soft tissue damage, flaps or high energy trauma irrespective of wound size
-4. Type IIIB - inadequate soft tissue coverage with periosteal stripping, often associated with massive contamination
-5. Type IIIC - arterial injury requiring repair
-What is the infection rate based on the Gustilo classification of open fractures? [JAAOS 2010;18:108- 117]
-1. Type I - 0-2%
+--Start Table--7x4
+Acetabulum Fracture	Radiographic Features	Approach	Fixation	Anterior Wall (1.7%)	Iliopectineal line disrupted (2 breaks)	AIP or II	Lag screw and neutralization pelvic brim plate · Lag screw often not possible	Anterior Column (3.9%)	Iliopectineal line disrupted	AIP (+/- lateral window) or II	Lag screw (or plate) and neutralization pelvic brim plate · High fracture - lag between tables of the ilium near crest · Middle fracture - lag from between ASIS and AIIS toward PSIS · Low fracture - lag from lateral to pelvic brim toward sciatic notch · 3.5mm recon plate along pelvic brim +/- quadrilateral buttress if quadrilateral plate involved	Obturator foramen (inferior pubic rami) disrupted	Posterior Wall (23.6%)	Ilioischial and iliopectineal intact Posterior wall disrupted on obturator oblique	K-L	Lag screws and buttress plate · 3.5mm recon plate, slightly undercontoured, parallel and close to acetabulum rim, spanning ischium to ilium Spring plate for very small fragments · 1/3 semitubular plate	Posterior Column (3.5%)	Ilioischial disrupted · Ilioischial displaces medial relative to teardrop Obturator foramen (inferior pubic rami) disrupted	K-L	Lag screw and neutralization plate · Lag screw perpendicular to fracture from ischium to ilium (P-A) directed toward pelvic brim · 3.5mm recon plate from ischium to ilium OR Two plates · Both from ischium to ilium	Transverse (8.3%)	Ilioischial disrupted · Ilioischial maintains relationship with teardrop Iliopectineal disrupted CT axial slice - sagittal plane fracture	K-L · Infratectal Prone position preferred AIP or II · Transtectal or Juxtatectal	From K-L Anterior column screw and posterior column plate (alternative is a posterior column 'butt' screw) · Screw is directed from above sciatic notch to root of superior ramus · 3.5mm recon plate along retroacetabular surface from ilium to ischium From AIP or II Pelvic brim plate · Fixes anterior column · Interfragmentary screws through the plate fix the posterior column
+--End Table--7x4
+NOTE: anterior intrapelvic approach (AIP), ilioinguinal approach (II), Kocher-Langenbeck approach (K- L), extended iliofemoral approach (EIF)

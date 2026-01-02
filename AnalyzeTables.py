@@ -46,7 +46,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="122"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="171"
         )
     result = poller.result()
 
@@ -68,7 +68,7 @@ def analyze_document() -> None:
                 table_index += 1
             append_raw_cards(paragraph, raw_anki_cards)
 
-        elif check_table:
+        elif check_table(paragraph=paragraph, next_table=next_table):
             if not inTable:
                 inTable = True
                 raw_anki_cards.append(f"{AnkiCard.tableStart}{next_table.row_count}x{next_table.column_count}")
