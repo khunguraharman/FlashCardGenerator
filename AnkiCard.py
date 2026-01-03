@@ -20,6 +20,23 @@ class AnkiCard:
         front:str
         back:list[BackBlock]
 
+@dataclass
+class BasicAnkiCard:
+    front: str
+    back: list[str]
+
+    EXLCUDE_NOTES: ClassVar[str] = "NOTE:"
+
+@dataclass
+class RawClozeAnkiCard:
+    tableHeaders: list[str]
+    clozeFragments: list[str]
+
+@dataclass
+class ClozeAnkiCard:
+    fullText: str
+    clozeDeletions: list[str]
+
 def is_front_of_card(first_char: str) -> bool:
     # Implement logic to determine if a string is the front of an Anki card    
     if first_char.isupper() and 'A' <= first_char <= 'Z':
