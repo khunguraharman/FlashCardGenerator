@@ -5,32 +5,6 @@ import os, json
 from AnkiCard import BasicAnkiCard, RawClozeAnkiCard
 from dataclasses import dataclass
 
-@dataclass
-class TableDimensions:
-    page: int
-    row_count: int
-    column_count: int
-    span_start: int
-    span_end: int
-
-def check_table(paragraph, next_table: TableDimensions) -> bool:
-    par_page = paragraph.bounding_regions[0].page_number
-    if par_page != next_table.page:
-        return False
-    if paragraph.spans[0].offset >= next_table.span_start and paragraph.spans[0].offset + paragraph.spans[0].length <= next_table.span_end:
-        return True
-    return False
-
-def append_raw_cards(paragraph, raw_anki_cards: list[str]) -> None:
-    if not paragraph.role:
-        raw_anki_cards.append(paragraph.content)
-    return
-
-def concatenate_table_cells(paragraph, raw_anki_cards: list[str]) -> None:
-    if not paragraph.role:
-        raw_anki_cards[-1] += "\t" + paragraph.content
-    return    
-
 def write_basic_cards(content: list[str]) -> None:
     file_path = "basic_anki_cards.txt"
     with open(file_path, "w", encoding="utf-8") as f:
@@ -84,7 +58,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="170-173"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="142"
         )
     result = poller.result()
 
