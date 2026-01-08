@@ -1,6 +1,0 @@
-Hawkins Type	Incidence	Rate of Osteonecrosis	
-TYPE 1	21%	0-5.7%	
-Hawkins Type	Incidence	Rate of Osteonecrosis	
-TYPE 2	43%	15.9-20.7%	
-Hawkins Type	Incidence	Rate of Osteonecrosis	
-TYPE 3	31%	38.9-44.8%	

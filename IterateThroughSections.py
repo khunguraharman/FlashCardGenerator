@@ -50,6 +50,7 @@ def process_table(table) -> list[RawClozeAnkiCard]:
             current_row = row
     return all_fragments
 
+# this functions helps viaualize the document structure
 def analyze_document() -> None:
     endpoint = os.getenv("doc_intel_endpoint")
     credential = AzureKeyCredential(os.getenv("doc_intel_key"))
@@ -58,7 +59,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="142"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="19-20"
         )
     result = poller.result()
 
