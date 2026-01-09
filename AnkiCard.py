@@ -111,7 +111,8 @@ if __name__ == "__main__":
     documents = []
     docs_to_remove = []
     for card in basic_anki_cards:
-        print(card)
+        if(card.front.__contains__("screw functions?")):
+            print(card)
         answer_text: str =  "\n".join(line.strip() for line in card.back if line.strip())
         embedding_text = "\n".join([
             f"Q: {card.front.strip()}",
@@ -119,9 +120,7 @@ if __name__ == "__main__":
         response = client.embeddings.create(input = [embedding_text], model=aoai_deployment)
         embedding:list[float] = response.data[0].embedding
         documents.append( {"id": card.id ,"question": card.front, "answer": answer_text, "vector_text_ada_large": embedding})
-        docs_to_remove.append( {"id": card.id} )
-    batch_client.delete_documents(documents = docs_to_remove)
-    flushed = batch_client.flush()
+        docs_to_remove.append( {"id": card.id} )    
     batch_client.upload_documents(documents = documents)
     flushed_2 = batch_client.flush()
     batch_client.close()

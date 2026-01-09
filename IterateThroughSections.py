@@ -1,7 +1,7 @@
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
-import os, json
+import os, json, re
 from AnkiCard import BasicAnkiCard, RawClozeAnkiCard
 from dataclasses import dataclass
 
@@ -50,6 +50,14 @@ def process_table(table) -> list[RawClozeAnkiCard]:
             current_row = row
     return all_fragments
 
+def section_exception(section: str) -> bool:
+    if bool(re.match(r'^\d+\.', section)):
+        return True
+    elif bool(re.match(r'^[a-z]\.', section)):
+        return True
+    else:
+        return False
+
 # this functions helps viaualize the document structure
 def analyze_document() -> None:
     endpoint = os.getenv("doc_intel_endpoint")
@@ -59,7 +67,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="19-20"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="18-24"
         )
     result = poller.result()
 
@@ -97,11 +105,13 @@ def analyze_document() -> None:
 
         kind, idx = parse_ref(current_ref)
 
+        # get section paragraph 0 
+
         if kind == "sections":
             if idx not in visited_sections:
                 stack.append((idx, 0))
         elif kind == "paragraphs":
-            if element_idx == 0 or result.paragraphs[idx].content.startswith(BasicAnkiCard.EXLCUDE_NOTES):
+            if (element_idx == 0 and not section_exception(result.paragraphs[idx].content)) or result.paragraphs[idx].content.startswith(BasicAnkiCard.EXLCUDE_NOTES):
                 continue
             else:
                 paragraphs_to_print.append(result.paragraphs[idx].content.strip())
