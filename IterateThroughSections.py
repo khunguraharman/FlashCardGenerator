@@ -38,7 +38,7 @@ def process_table(table) -> list[RawClozeAnkiCard]:
     headers: list[str] = []
     current_row: int = 1
     for cell in table.cells:
-        if cell.kind == "columnHeader" and cell.row_index == 0:
+        if cell.row_index == 0:
             headers.append(cell.content)
             continue
         row = cell.row_index
@@ -48,6 +48,7 @@ def process_table(table) -> list[RawClozeAnkiCard]:
             all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
             cloze_fragments = [cell.content]
             current_row = row
+    all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
     return all_fragments
 
 def section_exception(section: str) -> bool:
@@ -67,7 +68,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="18-24"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="122"
         )
     result = poller.result()
 
