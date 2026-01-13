@@ -13,7 +13,7 @@ def write_basic_cards(content: list[str]) -> None:
     return
 
 def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
-    file_path = "cloze_anki_cards.txt"
+    file_path = "cloze_anki_cards_multipage_tables.txt"
     with open(file_path, "w", encoding="utf-8") as f:
         for card in content:
             for header in card.tableHeaders:
@@ -68,7 +68,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="122"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="172-173"
         )
     result = poller.result()
 

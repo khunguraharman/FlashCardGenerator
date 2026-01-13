@@ -37,12 +37,18 @@ class BasicAnkiCard(AnkiCard):
     EXLCUDE_NOTES: ClassVar[str] = "NOTE:"
     def __post_init__(self) -> None:
         self.id = make_id_from_question(self.front)
-        
+
+@dataclass
+class TableLocation:
+    page: int
+    element_index: int
 
 @dataclass
 class RawClozeAnkiCard:
     tableHeaders: list[str]
     clozeFragments: list[str]
+
+    MULTI_PAGE_TABLE_TO_SKIP: ClassVar[TableLocation] = TableLocation(page=-1, element_index=-1)
 
 @dataclass
 class ClozeAnkiCard(AnkiCard):
