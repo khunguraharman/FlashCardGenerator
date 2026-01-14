@@ -2,7 +2,7 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
 import os, json, re
-from AnkiCard import BasicAnkiCard, RawClozeAnkiCard
+from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard
 from dataclasses import dataclass
 
 def write_basic_cards(content: list[str]) -> None:
@@ -11,6 +11,11 @@ def write_basic_cards(content: list[str]) -> None:
         for line in content:
             f.write(line + "\n")
     return
+
+def check_multi_page_table(table) -> bool:
+    first_page = table.bounding_regions[0].page_number
+    second_page = first_page + 1
+    return RawClozeAnkiCard.MULTI_PAGE_TABLES.get(first_page) == second_page
 
 def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
     file_path = "cloze_anki_cards_multipage_tables.txt"
@@ -50,6 +55,23 @@ def process_table(table) -> list[RawClozeAnkiCard]:
             current_row = row
     all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
     return all_fragments
+
+def process_multi_page_table(table, next_table) -> list[RawClozeAnkiCard]:
+    first_page = table.bounding_regions[0].page_number
+    second_page = next_table.bounding_regions[0].page_number
+    match first_page:
+        case 172 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(172) == second_page:
+            tmp_list = process_table(table)
+            #for i in range()
+            tmp_list[-1].clozeFragments[-3] += next_table.cells[0].content + next_table.cells[3].content + next_table.cells[6].content + next_table.cells[7].content
+            tmp_list[-1].clozeFragments[-2] += next_table.cells[1].content
+            tmp_list[-1].clozeFragments[-1] += next_table.cells[2].content + next_table.cells[5].content + next_table.cells[8].content
+            return tmp_list
+        case (186, 187):
+            print("This is table spanning pages 186-187")
+    return []
+
+
 
 def section_exception(section: str) -> bool:
     if bool(re.match(r'^\d+\.', section)):
@@ -117,7 +139,12 @@ def analyze_document() -> None:
             else:
                 paragraphs_to_print.append(result.paragraphs[idx].content.strip())
         elif kind == "tables":
-            tables_to_print.extend(process_table(result.tables[idx]))
+            multi_page_table: bool = check_multi_page_table(result.tables[idx])
+            #if multi page table, must prepare to skip next table
+            if multi_page_table:
+                tables_to_print.extend(process_multi_page_table(result.tables[idx], result.tables[idx + 1]))
+            else:
+                tables_to_print.extend(process_table(result.tables[idx]))
 
     write_basic_cards(paragraphs_to_print)
     write_cloze_cards(tables_to_print)

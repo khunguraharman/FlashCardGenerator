@@ -48,7 +48,9 @@ class RawClozeAnkiCard:
     tableHeaders: list[str]
     clozeFragments: list[str]
 
-    MULTI_PAGE_TABLE_TO_SKIP: ClassVar[TableLocation] = TableLocation(page=-1, element_index=-1)
+    TABLE_TO_SKIP: ClassVar[TableLocation] = TableLocation(page=-1, element_index=-1)
+    MULTI_PAGE_TABLES: ClassVar[dict[int,int]] = {172: 173, 186:187}
+
 
 @dataclass
 class ClozeAnkiCard(AnkiCard):

@@ -1,23 +1,14 @@
-3. Tibia canal is not patent or deformed from prior fracture
-4. Ipsilateral tibial plateau fracture
-What percentage of tibia fractures are open? [JAAOS 2010;18:108-117] 1. 24%
-What is the emergency department management of open tibial shaft fractures?
-1. ATLS and resuscitation
-2. Tetanus status
-3. Early antibiotics
-4. Neurovascular, compartment, soft tissue examination
-5. Debridement
-a. Irrigation, remove gross debris, cover with sterile permeable dressing
-6. Fracture reduction and splinting
-What is the management of tetanus status in open fractures? [Orthobullets]
-1. Dictated by immunization history and contamination of wound
-a. Tetanus toxoid-containing vaccine dose is 0.5 mL intramuscular
-b. Tetanus immune globulin dose is 250 units intramuscular
-What is the Gustilo classification of open fractures? [JAAOS 2010;18:108-117] [CORR 2012; 470:3270- 3274]
-1. Type I - clean wound <1cm in length
-2. Type II - clean wound >1cm in length without extensive soft tissue damage, flaps or avulsions
-3. Type IIIA - adequate soft tissue coverage despite extensive soft tissue damage, flaps or high energy trauma irrespective of wound size
-4. Type IIIB - inadequate soft tissue coverage with periosteal stripping, often associated with massive contamination
-5. Type IIIC - arterial injury requiring repair
-What is the infection rate based on the Gustilo classification of open fractures? [JAAOS 2010;18:108- 117]
-1. Type I - 0-2%
+What hip position favors pure posterior hip dislocation? [Rockwood and Green 8th ed. 2015]
+1. Increased hip flexion, internal rotation and adduction (lesser degrees result in fracture-dislocation)
+What hip position results in anterior hip dislocation? [Rockwood and Green 8th ed. 2015]
+1. Hyperabduction, extension, external rotation
+What anatomic variation of the proximal femur predisposes to posterior hip dislocation? [JAAOS 2007;15:716-727]
+1. Decreased femoral head anteversion
+What are contra-indications to closed reduction of a hip dislocation? [Rockwood and Green 8th ed. 2015]
+1. Nondisplaced femoral neck fracture (percutaneous screw fixation prior to closed reduction)
+2. Other injuries that would preclude using the lower limb to manipulate the hip
+What is the technique for closed reduction of a posterior hip dislocation? [Rockwood and Green 8th ed. 2015]
+1. Allis maneuver - countertraction applied to ASIS, knee and hip flexed, inline traction applied to femur with hip in adduction and internal rotation, gentle rotation applied until reduced, post reduction the hip is extended and externally rotated, knee immobilizer applied
+Pre-reduction what imaging is recommended? [Rockwood and Green 8th ed. 2015]
+1. AP pelvis
+2. Additional imaging may be requried if concern regarding femoral neck fracture or femur, knee or
