@@ -2,7 +2,7 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
 import os, json, re
-from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard
+from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard, TableLocation
 from dataclasses import dataclass
 
 def write_basic_cards(content: list[str]) -> None:
@@ -12,10 +12,21 @@ def write_basic_cards(content: list[str]) -> None:
             f.write(line + "\n")
     return
 
-def check_multi_page_table(table) -> bool:
-    first_page = table.bounding_regions[0].page_number
-    second_page = first_page + 1
-    return RawClozeAnkiCard.MULTI_PAGE_TABLES.get(first_page) == second_page
+def check_multi_page_table(result_tables, index: int) -> bool:
+    # if last table, cannot be multi-page
+    if index >= len(result_tables) - 1:
+        return False
+
+    first_page = result_tables[index].bounding_regions[0].page_number
+    
+    next_table_page = result_tables[index+1].bounding_regions[0].page_number
+
+    is_multi_page = RawClozeAnkiCard.MULTI_PAGE_TABLES.get(first_page) == next_table_page
+
+    if is_multi_page:
+        RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table_page, index + 1)
+
+    return is_multi_page
 
 def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
     file_path = "cloze_anki_cards_multipage_tables.txt"
@@ -63,15 +74,13 @@ def process_multi_page_table(table, next_table) -> list[RawClozeAnkiCard]:
         case 172 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(172) == second_page:
             tmp_list = process_table(table)
             #for i in range()
-            tmp_list[-1].clozeFragments[-3] += next_table.cells[0].content + next_table.cells[3].content + next_table.cells[6].content + next_table.cells[7].content
+            tmp_list[-1].clozeFragments[-3] += next_table.cells[0].content + " " + next_table.cells[3].content + " " + next_table.cells[6].content + " " + next_table.cells[7].content
             tmp_list[-1].clozeFragments[-2] += next_table.cells[1].content
-            tmp_list[-1].clozeFragments[-1] += next_table.cells[2].content + next_table.cells[5].content + next_table.cells[8].content
+            tmp_list[-1].clozeFragments[-1] += next_table.cells[2].content + " " + next_table.cells[5].content + " " + next_table.cells[8].content
             return tmp_list
         case (186, 187):
             print("This is table spanning pages 186-187")
     return []
-
-
 
 def section_exception(section: str) -> bool:
     if bool(re.match(r'^\d+\.', section)):
@@ -139,7 +148,9 @@ def analyze_document() -> None:
             else:
                 paragraphs_to_print.append(result.paragraphs[idx].content.strip())
         elif kind == "tables":
-            multi_page_table: bool = check_multi_page_table(result.tables[idx])
+            if RawClozeAnkiCard.TABLE_TO_SKIP.page == result.tables[idx].bounding_regions[0].page_number and idx == RawClozeAnkiCard.TABLE_TO_SKIP.table_index:
+                continue
+            multi_page_table: bool = check_multi_page_table(result.tables, idx)
             #if multi page table, must prepare to skip next table
             if multi_page_table:
                 tables_to_print.extend(process_multi_page_table(result.tables[idx], result.tables[idx + 1]))
