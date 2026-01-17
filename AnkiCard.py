@@ -5,8 +5,6 @@ from pyclbr import Class
 from typing import ClassVar
 import re, hashlib
 
-
-
 def normalize_question(q: str) -> str:
     q = q.strip().lower()
     q = re.sub(r"\s+", " ", q)          # collapse whitespace    
@@ -49,8 +47,7 @@ class RawClozeAnkiCard:
     clozeFragments: list[str]
 
     TABLE_TO_SKIP: ClassVar[TableLocation] = TableLocation(page=-1, table_index=-1)
-    MULTI_PAGE_TABLES: ClassVar[dict[int,int]] = {172: 173, 186:187}
-
+    MULTI_PAGE_TABLES: ClassVar[dict[int,int]] = {172: 173, 186: 187, 225: 226, 551: 552}
 
 @dataclass
 class ClozeAnkiCard(AnkiCard):
@@ -76,7 +73,7 @@ def create_basic_cards(doc_path: str) -> list[BasicAnkiCard]:
         lines = file.readlines()
     front = lines[0]
     back = []
-    for line in lines[1:]:        
+    for line in lines[1:]:
         first_char = line[0]
         if not is_front_of_card(first_char):
             back.append(line)

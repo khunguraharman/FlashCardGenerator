@@ -3,92 +3,7 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
 import os, json, re
 from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard, TableLocation
-from dataclasses import dataclass
-
-def write_basic_cards(content: list[str]) -> None:
-    file_path = "basic_anki_cards.txt"
-    with open(file_path, "w", encoding="utf-8") as f:
-        for line in content:
-            f.write(line + "\n")
-    return
-
-def check_multi_page_table(result_tables, index: int) -> bool:
-    # if last table, cannot be multi-page
-    if index >= len(result_tables) - 1:
-        return False
-
-    first_page = result_tables[index].bounding_regions[0].page_number
-    
-    next_table_page = result_tables[index+1].bounding_regions[0].page_number
-
-    is_multi_page = RawClozeAnkiCard.MULTI_PAGE_TABLES.get(first_page) == next_table_page
-
-    if is_multi_page:
-        RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table_page, index + 1)
-
-    return is_multi_page
-
-def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
-    file_path = "cloze_anki_cards_multipage_tables.txt"
-    with open(file_path, "w", encoding="utf-8") as f:
-        for card in content:
-            for header in card.tableHeaders:
-                f.write(header + "\t")
-            # create a new line
-            f.write("\n")
-            # repeat headers for each row
-            for fragment in card.clozeFragments:
-                # write out fragments                
-                f.write(fragment + "\t")
-            f.write("\n")
-    return
-
-def parse_ref(ref: str) -> tuple[str, int]:
-    # "/paragraphs/0" -> ("paragraphs", 0)
-    _, kind, idx = ref.split("/")
-    return kind, int(idx)
-
-def process_table(table) -> list[RawClozeAnkiCard]:
-    all_fragments: list[RawClozeAnkiCard] = []
-    cloze_fragments: list[str] = []
-    headers: list[str] = []
-    current_row: int = 1
-    for cell in table.cells:
-        if cell.row_index == 0:
-            headers.append(cell.content)
-            continue
-        row = cell.row_index
-        if row == current_row:
-            cloze_fragments.append(cell.content)
-        else:
-            all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
-            cloze_fragments = [cell.content]
-            current_row = row
-    all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
-    return all_fragments
-
-def process_multi_page_table(table, next_table) -> list[RawClozeAnkiCard]:
-    first_page = table.bounding_regions[0].page_number
-    second_page = next_table.bounding_regions[0].page_number
-    match first_page:
-        case 172 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(172) == second_page:
-            tmp_list = process_table(table)
-            #for i in range()
-            tmp_list[-1].clozeFragments[-3] += next_table.cells[0].content + " " + next_table.cells[3].content + " " + next_table.cells[6].content + " " + next_table.cells[7].content
-            tmp_list[-1].clozeFragments[-2] += next_table.cells[1].content
-            tmp_list[-1].clozeFragments[-1] += next_table.cells[2].content + " " + next_table.cells[5].content + " " + next_table.cells[8].content
-            return tmp_list
-        case (186, 187):
-            print("This is table spanning pages 186-187")
-    return []
-
-def section_exception(section: str) -> bool:
-    if bool(re.match(r'^\d+\.', section)):
-        return True
-    elif bool(re.match(r'^[a-z]\.', section)):
-        return True
-    else:
-        return False
+from ProcessResults import write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception
 
 # this functions helps viaualize the document structure
 def analyze_document() -> None:
@@ -99,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="172-173"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="551-552"
         )
     result = poller.result()
 

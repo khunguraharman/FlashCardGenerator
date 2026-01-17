@@ -1,14 +1,44 @@
-What hip position favors pure posterior hip dislocation? [Rockwood and Green 8th ed. 2015]
-1. Increased hip flexion, internal rotation and adduction (lesser degrees result in fracture-dislocation)
-What hip position results in anterior hip dislocation? [Rockwood and Green 8th ed. 2015]
-1. Hyperabduction, extension, external rotation
-What anatomic variation of the proximal femur predisposes to posterior hip dislocation? [JAAOS 2007;15:716-727]
-1. Decreased femoral head anteversion
-What are contra-indications to closed reduction of a hip dislocation? [Rockwood and Green 8th ed. 2015]
-1. Nondisplaced femoral neck fracture (percutaneous screw fixation prior to closed reduction)
-2. Other injuries that would preclude using the lower limb to manipulate the hip
-What is the technique for closed reduction of a posterior hip dislocation? [Rockwood and Green 8th ed. 2015]
-1. Allis maneuver - countertraction applied to ASIS, knee and hip flexed, inline traction applied to femur with hip in adduction and internal rotation, gentle rotation applied until reduced, post reduction the hip is extended and externally rotated, knee immobilizer applied
-Pre-reduction what imaging is recommended? [Rockwood and Green 8th ed. 2015]
-1. AP pelvis
-2. Additional imaging may be requried if concern regarding femoral neck fracture or femur, knee or
+5. Slip angle >60
+a. Combined flexion intertrochanteric osteotomy and surgical hip dislocation (possibly staged)
+What is the epidemiology of Legg Calve Perthes (LCP) disease? [JAAOS 2010;18:676-686]
+1. Age = 5-8
+2. Males (5:1)
+3. Bilateral 10-15%
+4. Delayed bone age compared to chronological age
+What are the risk factors for LCP?
+1. Males, family history, delayed bone age, low birth weight, second hand smoke, low socioeconomic status
+What is the differential diagnosis of LCP?
+1. Other causes of AVN
+a. Sickle cell disease, other hemoglobinopathies (e.g. thalassaemia), chronic myelogenous leukemia, steroids, traumatic hip dislocation, treatment of DDH, septic arthritis
+2. Epiphyseal dysplasias
+a. MED, SED, mucopolysaccharidoses, hypothyroidism
+3. Other syndromes
+a. Osteochondromoatosis, metachondromatosis, Schwartz-Jampel syndrome, others
+What is the radiographic classification of LCP based on stages of progression? [JAAOS 2010;18:676- 686]
+1. Waldenstrom classification
+What is the classification system that describes shape of the femoral head and joint congruity at skeletal maturity? [JAAOS 2010;18:676-686]
+1. Stulberg
+a. Class I - Normal hip joint
+b. Class II - Spherical head with enlargement, short neck or steep acetabulum
+c. Class III- Nonspherical head (ovoid, mushroom-shaped, umbrella-shaped)
+d. Class IV - Flat head
+e. Class V - Flat head with incongruent hip joint
+2. Three types of congruency are described:
+a. Spherical congruency (classes I and II), aspherical congruency (classes III and IV), and aspherical incongruency (class V)
+3. Note: increasing class # correlates with onset of osteoarthritis
+What is the Catterall classification? [AAOS comprehensive review, 2014]
+1. Based on the extent of head involvement during fragmentation stage
+a. Group I - anterior head involvement
+b. Group II - anterior and central head involvement
+c. Group III - only a small part of the epiphysis is not involved (usually posteromedial)
+d. Group IV - total head involvement
+2. Note: poor interobserver reliability
+What are the Catterall head at risk signs? [JAAOS 2010;18:676-686]
+1. Lateral subluxation, lateral calcification, diffuse metaphyseal reaction, horizontal growth plate, Gage sign
+a. Gage sign = V-shaped radiolucency in the lateral portion of the epiphysis and/or adjacent metaphysis
+2. NOTE - indicate a more severe disease course
+What is the lateral pillar (Herring) classification? [JAAOS 2010;18:676-686]
+1. Based on the height of the lateral 15-30% of the femoral epiphysis (aka. lateral pillar) during fragmentation phase
+a. Group A - no loss of height
+b. Group B - < 50% loss of height
+c. B/C Border
