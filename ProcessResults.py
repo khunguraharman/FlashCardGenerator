@@ -106,3 +106,27 @@ def section_exception(section: str) -> bool:
         return True
     else:
         return False
+
+def process_exception_table(first_table, next_table, idx) -> list[str]:
+    RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table.bounding_region[0].page_number, idx + 1)
+    headers: list[str] = []
+    #appeding headers
+    for column in range(first_table.column_count):
+        headers.append(f"{first_table.cells[column].content.strip()} \t")            
+
+    values = []
+    for table in [first_table, next_table]:
+        current_section = ""
+        starting_cell = 0
+        if table == first_table:
+            starting_cell = first_table.column_count # if two columns, start at cell index 2, else start at 0        
+        for cell in range(starting_cell, len(table.cells)):
+            if table.cells[cell].content.strip().isupper():
+                current_section = table.cells[cell].content.strip()
+                continue
+            if table.cells[cell].content.strip() == "":
+                continue
+            string = f"table: {headers[table.cells[cell].column_index]}: {current_section}: {table.cells[cell].content.strip()} \t"
+            values.append(string)
+
+    return values

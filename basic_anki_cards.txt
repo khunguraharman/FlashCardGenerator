@@ -1,44 +1,51 @@
-5. Slip angle >60
-a. Combined flexion intertrochanteric osteotomy and surgical hip dislocation (possibly staged)
-What is the epidemiology of Legg Calve Perthes (LCP) disease? [JAAOS 2010;18:676-686]
-1. Age = 5-8
-2. Males (5:1)
-3. Bilateral 10-15%
-4. Delayed bone age compared to chronological age
-What are the risk factors for LCP?
-1. Males, family history, delayed bone age, low birth weight, second hand smoke, low socioeconomic status
-What is the differential diagnosis of LCP?
-1. Other causes of AVN
-a. Sickle cell disease, other hemoglobinopathies (e.g. thalassaemia), chronic myelogenous leukemia, steroids, traumatic hip dislocation, treatment of DDH, septic arthritis
-2. Epiphyseal dysplasias
-a. MED, SED, mucopolysaccharidoses, hypothyroidism
-3. Other syndromes
-a. Osteochondromoatosis, metachondromatosis, Schwartz-Jampel syndrome, others
-What is the radiographic classification of LCP based on stages of progression? [JAAOS 2010;18:676- 686]
-1. Waldenstrom classification
-What is the classification system that describes shape of the femoral head and joint congruity at skeletal maturity? [JAAOS 2010;18:676-686]
-1. Stulberg
-a. Class I - Normal hip joint
-b. Class II - Spherical head with enlargement, short neck or steep acetabulum
-c. Class III- Nonspherical head (ovoid, mushroom-shaped, umbrella-shaped)
-d. Class IV - Flat head
-e. Class V - Flat head with incongruent hip joint
-2. Three types of congruency are described:
-a. Spherical congruency (classes I and II), aspherical congruency (classes III and IV), and aspherical incongruency (class V)
-3. Note: increasing class # correlates with onset of osteoarthritis
-What is the Catterall classification? [AAOS comprehensive review, 2014]
-1. Based on the extent of head involvement during fragmentation stage
-a. Group I - anterior head involvement
-b. Group II - anterior and central head involvement
-c. Group III - only a small part of the epiphysis is not involved (usually posteromedial)
-d. Group IV - total head involvement
-2. Note: poor interobserver reliability
-What are the Catterall head at risk signs? [JAAOS 2010;18:676-686]
-1. Lateral subluxation, lateral calcification, diffuse metaphyseal reaction, horizontal growth plate, Gage sign
-a. Gage sign = V-shaped radiolucency in the lateral portion of the epiphysis and/or adjacent metaphysis
-2. NOTE - indicate a more severe disease course
-What is the lateral pillar (Herring) classification? [JAAOS 2010;18:676-686]
-1. Based on the height of the lateral 15-30% of the femoral epiphysis (aka. lateral pillar) during fragmentation phase
-a. Group A - no loss of height
-b. Group B - < 50% loss of height
-c. B/C Border
+e. Type III
+i. Similar pars fracture as type I plus C2/C3 facet dislocation
+ii. MOI = flexion distraction followed by hyperextension
+Note: hyperextension causes the pars fracture and flexion causes PLL and disc rupture
+What is the treatment of traumatic spondylolisthesis of the axis? [JAAOS 2014;22:718-729] [Orthobullets]
+1. Type I - hard cervical orthosis (12 weeks)
+2. Type Ia - halo immobilization
+3. Type II - halo immobilization (12 weeks)
+4. Type IIa
+a. C2-C3 anterior cervical discectomy and fusion or posterior fixation
+b. Reduction with gentle axial load + hyperextension, then compression halo immobilization for 6-12 weeks
+5. Type III - posterior reduction and stabilization (C2-C3 or C1-C3 fusion)
+What defines the subaxial cervical spine?
+1. C3-C7
+What is the classification system for subaxial cervical spine trauma?
+1. Allen and Ferguson
+a. 6 classes based on mechanism of injury and static radiographs (used in research)
+b. Flexion-compression, vertical compression, flexion-distraction, extension-compression, extension-distraction, lateral flexion
+2. Subaxial Injury Classification System (SLIC)
+a. Three components - morphology, integrity of the discoligamentous complex, neurological status
+b. Score dictates treatment
+i. < 4 = conservative treatment
+ii. 4 = treatment at discretion of surgeon
+iii. >4 = surgical treatment
+What are the main subaxial cervical spine factures and their management? [Rockwood and Green 8th ed. 2015]
+1. Compression fracture
+a. Characteristics = anterior vertebral height loss, posterior vertebrae not involved
+b. Nonoperative
+i. Indicated if stable and posterior ligamentous complex (PLC) intact
+1. Facet joints are not subluxated or dislocated, no vertebral translation, minimal gapping of interspinous spaces, kyphosis <11º
+ii. Rigid cervical collar for 3 months followed by flex-ex views
+c. Operative
+i. Indicated if unstable or neurological deficit
+1. Facet joint subluxation or dislocation, vertebral translation, gapping of interspinous spaces, kyphosis >11º, MRI findings suggestive of PLC disruption
+ii. Anterior or posterior stabilization
+2. Burst fracture
+a. Characteristics = comminuted vertebral body fracture involves the posterior vertebral body often with retropulsed fragments
+b. Nonoperative
+i. Indicated if no PLC disruption, no neurological deficit (rare)
+ii. Halo vest or rigid cervicothoracic orthosis
+c. Operative
+i. Indicated if PLC disruption, neurological deficit
+ii. Anterior corpectomy
+iii. Plus posterior instrumentation and fusion if PLC is disrupted
+3. Flexion teardrop fracture
+a. Characteristics = oblique fracture line from anterior vertebral body to the inferior endplate (quadrangular fragment), may have posterior translation of the posterior vertebral body, PLC disruption suggested by interspinous and facet gapping
+b. Nonoperative
+i. Minimally displaced, little kyphosis, intact PLC
+ii. Rigid cervical collar
+c. Operative
+i. Neurological deficit, PLC disruption (posterior VB translation, kyphosis >11º)

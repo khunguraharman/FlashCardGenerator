@@ -1,0 +1,30 @@
+CHARACTERISTIC	POINTS	
+MORPHOLOGY		
+CHARACTERISTIC	POINTS	
+- No abnormality	0	
+CHARACTERISTIC	POINTS	
+- Compression	1	
+CHARACTERISTIC	POINTS	
+- Burst	+1 = 2	
+CHARACTERISTIC	POINTS	
+- Distraction	3	
+CHARACTERISTIC	POINTS	
+- Rotation/Translation	4	
+CHARACTERISTIC	POINTS	
+DISCOLIGAMENTOUS COMPLEX		
+CHARACTERISTIC	POINTS	
+- Intact	0	
+- Indeterminate (e.g. MRI change only)	1	
+- Disrupted	2	
+- Indeterminate (e.g. MRI change only)	1	
+NEUROLOGIC STATUS		
+- Indeterminate (e.g. MRI change only)	1	
+- Intact	0	
+- Indeterminate (e.g. MRI change only)	1	
+- Root injury	1	
+- Indeterminate (e.g. MRI change only)	1	
+- Compete cord injury	2	
+- Indeterminate (e.g. MRI change only)	1	
+- Incomplete cord injury	3	
+- Indeterminate (e.g. MRI change only)	1	
+- Ongoing cord compression (in setting of a neurologic deficit)	+1	

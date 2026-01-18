@@ -3,7 +3,7 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
 import os, json, re
 from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard, TableLocation
-from ProcessResults import write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception
+from ProcessResults import write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception, process_exception_table
 
 # this functions helps viaualize the document structure
 def analyze_document() -> None:
@@ -14,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="551-552"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="589-590"
         )
     result = poller.result()
 
@@ -65,6 +65,12 @@ def analyze_document() -> None:
         elif kind == "tables":
             if RawClozeAnkiCard.TABLE_TO_SKIP.page == result.tables[idx].bounding_regions[0].page_number and idx == RawClozeAnkiCard.TABLE_TO_SKIP.table_index:
                 continue
+
+            # two multipage tables should be included as BasicAnkiCards, check if those exceptions are hit
+            if result.tables[idx].bounding_regions[0].page_number == 589:
+                paragraphs_to_print.extend(process_exception_table(result.tables[idx], result.tables[idx+1], idx))
+                continue
+
             multi_page_table: bool = check_multi_page_table(result.tables, idx)
             #if multi page table, must prepare to skip next table
             if multi_page_table:
