@@ -22,6 +22,32 @@ b. Score dictates treatment
 i. < 4 = conservative treatment
 ii. 4 = treatment at discretion of surgeon
 iii. >4 = surgical treatment
+table: CHARACTERISTIC 	: MORPHOLOGY: - No abnormality 	
+table: POINTS 	: MORPHOLOGY: 0 	
+table: CHARACTERISTIC 	: MORPHOLOGY: - Compression 	
+table: POINTS 	: MORPHOLOGY: 1 	
+table: CHARACTERISTIC 	: MORPHOLOGY: - Burst 	
+table: POINTS 	: MORPHOLOGY: +1 = 2 	
+table: CHARACTERISTIC 	: MORPHOLOGY: - Distraction 	
+table: POINTS 	: MORPHOLOGY: 3 	
+table: CHARACTERISTIC 	: MORPHOLOGY: - Rotation/Translation 	
+table: POINTS 	: MORPHOLOGY: 4 	
+table: CHARACTERISTIC 	: DISCOLIGAMENTOUS COMPLEX: - Intact 	
+table: POINTS 	: DISCOLIGAMENTOUS COMPLEX: 0 	
+table: CHARACTERISTIC 	: : - Indeterminate (e.g. MRI change only) 	
+table: POINTS 	: : 1 	
+table: CHARACTERISTIC 	: : - Disrupted 	
+table: POINTS 	: : 2 	
+table: CHARACTERISTIC 	: NEUROLOGIC STATUS: - Intact 	
+table: POINTS 	: NEUROLOGIC STATUS: 0 	
+table: CHARACTERISTIC 	: NEUROLOGIC STATUS: - Root injury 	
+table: POINTS 	: NEUROLOGIC STATUS: 1 	
+table: CHARACTERISTIC 	: NEUROLOGIC STATUS: - Compete cord injury 	
+table: POINTS 	: NEUROLOGIC STATUS: 2 	
+table: CHARACTERISTIC 	: NEUROLOGIC STATUS: - Incomplete cord injury 	
+table: POINTS 	: NEUROLOGIC STATUS: 3 	
+table: CHARACTERISTIC 	: NEUROLOGIC STATUS: - Ongoing cord compression (in setting of a neurologic deficit) 	
+table: POINTS 	: NEUROLOGIC STATUS: +1 	
 What are the main subaxial cervical spine factures and their management? [Rockwood and Green 8th ed. 2015]
 1. Compression fracture
 a. Characteristics = anterior vertebral height loss, posterior vertebrae not involved

@@ -108,7 +108,7 @@ def section_exception(section: str) -> bool:
         return False
 
 def process_exception_table(first_table, next_table, idx) -> list[str]:
-    RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table.bounding_region[0].page_number, idx + 1)
+    RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table.bounding_regions[0].page_number, idx + 1)
     headers: list[str] = []
     #appeding headers
     for column in range(first_table.column_count):
