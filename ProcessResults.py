@@ -107,7 +107,7 @@ def section_exception(section: str) -> bool:
     else:
         return False
 
-def process_exception_table(first_table, next_table, idx) -> list[str]:
+def process_exception_table_one(first_table, next_table, idx) -> list[str]:
     RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table.bounding_regions[0].page_number, idx + 1)
     headers: list[str] = []
     #appeding headers
@@ -129,4 +129,22 @@ def process_exception_table(first_table, next_table, idx) -> list[str]:
             string = f"table: {headers[table.cells[cell].column_index]}: {current_section}: {table.cells[cell].content.strip()} \t"
             values.append(string)
 
+    return values
+
+def process_footer_headers(paragraph_one, paragraph_two, next_table, table_idx) -> list[str]:
+    split_headers = paragraph_two.content.strip().split(" ")
+    values: list[str] = []
+    headers: list[str] = [paragraph_one.content.strip()]
+    headers.extend(split_headers)
+    # get the index of the next table
+    RawClozeAnkiCard.TABLE_TO_SKIP = TableLocation(next_table.bounding_regions[0].page_number, table_idx)
+    current_section = ""
+    for cell in range(0, len(next_table.cells)):
+        if next_table.cells[cell].content.strip().isupper():
+            current_section = next_table.cells[cell].content.strip()
+            continue
+        if next_table.cells[cell].content.strip() == "":
+            continue
+        string = f"table: {headers[next_table.cells[cell].column_index]}: {current_section}: {next_table.cells[cell].content.strip()} \t"
+        values.append(string)
     return values

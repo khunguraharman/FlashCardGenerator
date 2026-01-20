@@ -1,4 +1,0 @@
-Immunization History	Gustilo Classification Grade I	Gustilo Classification Grade II-III	
-Unknown history or <3 doses	Give vaccine only	Give vaccine and immune globulin	
-Immunization History	Gustilo Classification Grade I	Gustilo Classification Grade II-III	
-Vaccination complete (3 prior doses)	No prophylaxis if last dose within 10 years Give vaccine if >10 years since last dose	No prophylaxis if last dose within 5 years Give vaccine if >5 years since last dose	

@@ -17,6 +17,9 @@
 *.db-wal
 *.slnx
 *.pyproj
+basic_anki_cards.txt
+cloze_anki_cards.txt
+cloze_anki_cards_multipage_tables.txt
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
