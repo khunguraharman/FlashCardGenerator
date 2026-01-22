@@ -25,7 +25,7 @@ def check_multi_page_table(result_tables, index: int) -> bool:
     return is_multi_page
 
 def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
-    file_path = "cloze_anki_cards_multipage_tables.txt"
+    file_path = "cloze_anki_cards.txt"
     with open(file_path, "w", encoding="utf-8") as f:
         for card in content:
             for header in card.tableHeaders:
