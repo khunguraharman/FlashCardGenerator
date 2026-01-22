@@ -1,63 +1,9 @@
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
+from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult, ParagraphRole
 import os, json, re
-from AnkiCard import BasicAnkiCard, RawClozeAnkiCard
-from dataclasses import dataclass
-
-def write_basic_cards(content: list[str]) -> None:
-    file_path = "basic_anki_cards.txt"
-    with open(file_path, "w", encoding="utf-8") as f:
-        for line in content:
-            f.write(line + "\n")
-    return
-
-def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
-    file_path = "cloze_anki_cards.txt"
-    with open(file_path, "w", encoding="utf-8") as f:
-        for card in content:
-            for header in card.tableHeaders:
-                f.write(header + "\t")
-            # create a new line
-            f.write("\n")
-            # repeat headers for each row
-            for fragment in card.clozeFragments:
-                # write out fragments                
-                f.write(fragment + "\t")
-            f.write("\n")
-    return
-
-def parse_ref(ref: str) -> tuple[str, int]:
-    # "/paragraphs/0" -> ("paragraphs", 0)
-    _, kind, idx = ref.split("/")
-    return kind, int(idx)
-
-def process_table(table) -> list[RawClozeAnkiCard]:
-    all_fragments: list[RawClozeAnkiCard] = []
-    cloze_fragments: list[str] = []
-    headers: list[str] = []
-    current_row: int = 1
-    for cell in table.cells:
-        if cell.row_index == 0:
-            headers.append(cell.content)
-            continue
-        row = cell.row_index
-        if row == current_row:
-            cloze_fragments.append(cell.content)
-        else:
-            all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
-            cloze_fragments = [cell.content]
-            current_row = row
-    all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
-    return all_fragments
-
-def section_exception(section: str) -> bool:
-    if bool(re.match(r'^\d+\.', section)):
-        return True
-    elif bool(re.match(r'^[a-z]\.', section)):
-        return True
-    else:
-        return False
+from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard, TableLocation
+from ProcessResults import write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception, process_exception_table_one, process_footer_headers
 
 # this functions helps viaualize the document structure
 def analyze_document() -> None:
@@ -68,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="122"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="594-595"
         )
     result = poller.result()
 
@@ -90,23 +36,26 @@ def analyze_document() -> None:
 
     while stack:
         section_idx, element_idx = stack.pop()
-        # add the section to visited when you first enter it
+        
         if element_idx == 0:
+            # skip section if re-entering an already visited section
             if section_idx in visited_sections:
                 continue
+            # add the section to visited when you first enter it
             visited_sections.add(section_idx)
 
+        # get all elements of the section, tables, paragraphs, etc...
         section = sections[section_idx]
         elements = section.elements or  []
+
+        # check what element to process in the current iteration
         current_ref = elements[element_idx]
 
-        #ensure the next element is processed as well
+        # is another iteration is required for the next element?
         if element_idx + 1 < len(elements):
             stack.append((section_idx, element_idx + 1))
 
-        kind, idx = parse_ref(current_ref)
-
-        # get section paragraph 0 
+        kind, idx = parse_ref(current_ref)        
 
         if kind == "sections":
             if idx not in visited_sections:
@@ -114,10 +63,34 @@ def analyze_document() -> None:
         elif kind == "paragraphs":
             if (element_idx == 0 and not section_exception(result.paragraphs[idx].content)) or result.paragraphs[idx].content.startswith(BasicAnkiCard.EXLCUDE_NOTES):
                 continue
-            else:
-                paragraphs_to_print.append(result.paragraphs[idx].content.strip())
+            
+            paragraphs_to_print.append(result.paragraphs[idx].content.strip())
+
+            if result.paragraphs[idx].bounding_regions[0].page_number == 594 and result.paragraphs[idx+1].role == ParagraphRole.PAGE_FOOTER:
+                # get the next table and it's index
+                for i in range(element_idx, len(elements)):
+                    element_kind, table_idx = parse_ref(elements[i])
+                    if element_kind == "tables":
+                        break
+                spinal_table = process_footer_headers(result.paragraphs[idx+1], result.paragraphs[idx+2], result.tables[table_idx], table_idx)
+                paragraphs_to_print.extend(spinal_table)
+                continue
+
         elif kind == "tables":
-            tables_to_print.extend(process_table(result.tables[idx]))
+            if RawClozeAnkiCard.TABLE_TO_SKIP.page == result.tables[idx].bounding_regions[0].page_number and idx == RawClozeAnkiCard.TABLE_TO_SKIP.table_index:
+                continue
+
+            # two multipage tables should be included as BasicAnkiCards, check if those exceptions are hit
+            if result.tables[idx].bounding_regions[0].page_number == 589:
+                paragraphs_to_print.extend(process_exception_table_one(result.tables[idx], result.tables[idx+1], idx))
+                continue
+
+            multi_page_table: bool = check_multi_page_table(result.tables, idx)
+            #if multi page table, must prepare to skip next table
+            if multi_page_table:
+                tables_to_print.extend(process_multi_page_table(result.tables[idx], result.tables[idx + 1]))
+            else:
+                tables_to_print.extend(process_table(result.tables[idx]))
 
     write_basic_cards(paragraphs_to_print)
     write_cloze_cards(tables_to_print)
