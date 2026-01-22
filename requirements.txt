@@ -3,7 +3,7 @@ anyio==4.12.1
 azure-ai-documentintelligence==1.0.2
 azure-common==1.1.28
 azure-core==1.37.0
-azure-search-documents==11.6.0
+azure-search-documents==11.7.0b2
 certifi==2025.11.12
 charset-normalizer==3.4.4
 colorama==0.4.6
