@@ -1,7 +1,8 @@
-from azure.search.documents.knowledgebases.models import KnowledgeBaseMessage, KnowledgeBaseMessageTextContent, KnowledgeBaseRetrievalRequest, KnowledgeRetrievalMinimalReasoningEffort, SearchIndexKnowledgeSourceParams
+from azure.search.documents.knowledgebases.models import KnowledgeBaseMessage, KnowledgeBaseMessageTextContent, KnowledgeBaseRetrievalRequest, KnowledgeBaseRetrievalResponse, KnowledgeRetrievalLowReasoningEffort, SearchIndexKnowledgeSourceParams
 from azure.search.documents.knowledgebases import KnowledgeBaseRetrievalClient
 from azure.core.credentials import AzureKeyCredential
 import os
+from ProcessClozeResults import parse_cloze_response
 
 def getQuery() -> str:
     try:
@@ -41,11 +42,11 @@ def structureRequest(messages: list[dict], knowledge_src_name: str) -> Knowledge
             )
         ],
         include_activity = True,
-        retrieval_reasoning_effort = KnowledgeRetrievalMinimalReasoningEffort
+        retrieval_reasoning_effort = KnowledgeRetrievalLowReasoningEffort
     )
     return req
 
-def performQuery() -> None:
+def performQuery() -> tuple[KnowledgeBaseRetrievalResponse, KnowledgeBaseRetrievalResponse]:
     user_input = getQuery()
 
     search_endpoint = os.getenv("ai_search_url")
@@ -67,7 +68,9 @@ def performQuery() -> None:
 
     cloze_result = agent_client_cloze.retrieve(retrieval_request=cloze_req)
     print(f"Retrieved content from '{"knowledgebase-1768870241919"}' successfully.")
-    return
+    return tuple([basic_result, cloze_result])
 
 if __name__ == "__main__":
-    performQuery()
+    searchResults = performQuery()
+    #print(searchResults[0].response[0].content[0].text)    
+    parse_cloze_response(searchResults[1].response[0].content[0].text)
