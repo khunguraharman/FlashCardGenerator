@@ -94,3 +94,8 @@ def create_cloze_cards(doc_path: str) -> list[ClozeAnkiCard]:
         fragments = fragments[:-1]
         anki_cards.append(ClozeAnkiCard(headers, clozeDeletions = fragments))
     return anki_cards
+
+@dataclass
+class PresentationAsset:
+    front: str
+    back: str
