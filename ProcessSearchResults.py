@@ -2,6 +2,14 @@ from openai import AzureOpenAI, completions
 from azure.core.credentials import AzureKeyCredential
 import json, os
 from AnkiCard import PresentationAsset
+from pathlib import Path
+
+def createResultsFile(targetFile: str) ->  str:
+    if not targetFile.endswith(".txt"):
+        targetFile += ".txt"
+    results_dir = Path("results")
+    results_dir.mkdir(exist_ok=True)  # creates dir if it doesn't exist
+    return results_dir / targetFile
 
 def parse_search_response(response_text: str) -> list[dict]:
     pairs:list[dict] = []
@@ -24,6 +32,14 @@ def process_qna(pairs: list[dict]) -> list[PresentationAsset]:
         assets.append(PresentationAsset(front, back))
 
     return assets
+
+def create_basic_cards(assets: list[PresentationAsset]) -> None:
+    file_path = createResultsFile("final_basic_card_strings.txt")
+    with open(file_path, "w", encoding="utf-8") as f:
+        for card in assets:
+            f.write(card.front + "\n")
+            f.write(card.back + "\n\n")
+    return
 
 def process_canonical_pairs(pairs: list[dict]) -> list[tuple[str, str]]:
     aoai_version = "2025-01-01-preview"
@@ -130,7 +146,7 @@ def create_cloze_cards(pairs: list[tuple[str, str]]) -> None:
         )
         completed_cloze_cards.append(completion.choices[0].message.content)
 
-    file_path = "final_cloze_card_strings.txt"
+    file_path = createResultsFile("final_cloze_card_strings.txt")
     with open(file_path, "w", encoding="utf-8") as f:
         for card in completed_cloze_cards:
             f.write(card + "\n")

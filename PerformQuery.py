@@ -2,7 +2,7 @@ from azure.search.documents.knowledgebases.models import KnowledgeBaseMessage, K
 from azure.search.documents.knowledgebases import KnowledgeBaseRetrievalClient
 from azure.core.credentials import AzureKeyCredential
 import os
-from ProcessSearchResults import create_cloze_cards, parse_search_response, process_canonical_pairs, process_qna
+from ProcessSearchResults import create_basic_cards, create_cloze_cards, parse_search_response, process_canonical_pairs, process_qna
 
 def getQuery(question: str) -> str:
     try:
@@ -72,5 +72,5 @@ def performQuery() -> tuple[KnowledgeBaseRetrievalResponse, KnowledgeBaseRetriev
 
 if __name__ == "__main__":
     searchResults = performQuery()
-    basic_qna_results = process_qna(parse_search_response(searchResults[0].response[0].content[0].text))
+    create_basic_cards(process_qna(parse_search_response(searchResults[0].response[0].content[0].text)))
     create_cloze_cards(process_canonical_pairs(parse_search_response(searchResults[1].response[0].content[0].text)))
