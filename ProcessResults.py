@@ -152,21 +152,21 @@ def process_footer_headers(paragraph_one, paragraph_two, next_table, table_idx) 
 def process_technique_table(table) -> list[RawClozeAnkiCard]:
     headers: list[str] = ["Technique", "Advantages", "Disadvantages"]
     all_fragments: list[RawClozeAnkiCard] = []
-    cloze_fragments: list[str] = []
-    for row in range(0, table.row_count):
+    for row in range(0, table.row_count):        
+        cloze_fragments: list[str] = []
         for col in range(0, table.column_count):
             cloze_fragments.append(table.cells[row * table.column_count + col].content.strip())
-    all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
+        all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
     return all_fragments
 
 def process_fixation_table(table) -> list[RawClozeAnkiCard]:
     headers: list[str] = ["Fixation", "Advantages", "Disadvantages"]
-    all_fragments: list[RawClozeAnkiCard] = []
-    cloze_fragments: list[str] = []
+    all_fragments: list[RawClozeAnkiCard] = []    
     for row in range(1, table.row_count):
+        cloze_fragments: list[str] = []
         for col in range(0, table.column_count):
             cloze_fragments.append(table.cells[row * table.column_count + col].content.strip())
-    all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
+        all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
     return all_fragments
 
 def handle_pediatric_approach_table(table) -> list[RawClozeAnkiCard]:
