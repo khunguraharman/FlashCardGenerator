@@ -1,217 +1,332 @@
-What are the types of screw functions?
- 1. Lag screw
-a. Provides interfragmentary compression and absolute stability
-b. Two ways to achieve lag screw function
-i. By technique - near cortex is drilled slightly larger than the outer diameter and the far cortex is drilled to correspond with the inner diameter; the thread engages the far cortex and the head engages the near cortex
-ii. By design - partially threaded screw inserted so that threads engage the far cortex and not the near cortex
-c. Ideally directed perpendicular to the fracture line
-d. Has poor rotation, bending and shear stability
-2. Plate screw
-a. Nonlocking screw that fixes plate to bone via compression
-3. Positioning screw
-a. Fully threaded screw that holds two bone fragments at a fixed distance without compression (e.g. Syndesmosis screw)
-4. Push-pull screw
-a. Temporary point of fixation used to reduce a fracture by distraction and/or compression 5. Poller (blocking) screw
-a. Used as a fulcrum to redirect an intramedullary (IM) nail
-6. Interlocking screw
-a. Couples an IM nail to bone to maintain length, alignment and rotation
+What are the causes of pediatric acute compartment syndrome (ACS)? [JAAOS 2017;25:358-364]
+ 1. Trauma (most common)
+2. Vascular insult, surgical positioning, overexertion, infection, neonatal phenomena, or snake or insect bites
 
-What are the components of a screw?
- 1. Central core (core/inner/root diameter)
-2. Outer/major diameter
-3. Thread - engages the bone and is responsible for the function and purchase
-4. Tip - can be blunt, sharp, self-tapping
-5. Head - engages the bone or plate
-6. Recess in the head
-7. Pitch - distance between screw threads (a screw will advance a distance in the bone equivalent to the pitch)
-
-What are the common types of plate?
- 1. Limited contact dynamic compression plate (LC-DCP)
-a. 'LC' refers to the undercuts between screw holes which reduces the area of contact between the plate and bone to preserve blood supply; undercuts also distribute the strength evenly across the plate (eliminates stress risers); undercuts also allow for greater angulation of screws
-b. 'DCP' refers to the oval inclined holes which allows insertion of screws in neutral or compression mode as well as for angulation of the screw
-2. Locking plate
-a. Threads in screw head engage threads in plate to create a fixed angle device
-b. Conventional plates rely on the frictional forces between the plate and bone to resist applied load; locking plates rely on the plate-screw interface for construct stability
-c. Preserves blood supply as plate-bone contact not essential
-d. Conventional plates fail because of loss of bone purchase of the screw and sequential pull out of the screws; locking plates fail when all screws fail simultaneously
-e. Locking screws must be applied after reduction and compression have been achieved
-f. Indications:
-i. Osteoporotic bone
-ii. Bridge plating (internal fixator)
-iii. Metaphyseal fractures with a short articular block
-iv. Periprosthetic fractures (often require unicortical screws)
-3. 1/3 tubular plate
-a. Curved making 1/3 the circumference of a cylinder
-4. Reconstruction plate
-a. Has notches along the side of the plate between the holes enabling bending in three dimensions
-5. Precontoured periarticular plates
-a. Manufacturer specific plates designed to fit specific anatomic regions adjacent to joints; usually locking plates
-6. LISS (Less Invasive Stabilization System)
-a. Internal fixation plate that combines closed fixation of the distal femur using an anatomically pre-contoured plate with locked unicortical screws
-
-What factors influence stiffness of a plate construct? [JAAOS 2016;24:711-719]
- 1. Plate length
-a. Plate length should be 8 times the length for simple fractures
-b. Plate length should be 3 times the length for comminuted fractures
-c. Longer plates decrease stress concentration around the fracture and allows well spaced fixation
-2. Plate material
-a. Steel is stiffer than titanium and titanium alloy
-3. Working length
-a. Working length of the plate = distance between the proximal and distal screw in closest proximity to the fracture
-b. Longer working length reduces stiffness
-c. Shorter working length predisposes to nonunion
-4. Screw density
-a. Increased screw density increases stiffness
-b. Screw fill should not exceed 50%
-c. More than 4 diaphyseal screws are not required (even in osteoporotic bone)
-5. Screw length
-a. Bicortical vs. unicortical screws have a longer working length with greater bending and torsional resistance and ultimately greater stiffness
-6. Screw type
-a. Nonlocking, locking, hybrid
-b. Hybrid constructs reduce plate to bone distance and increase strength
-
-What are the types of plate functions?
- 1. Neutralization
-a. Plate neutralizes shear, bending and rotational forces to protect the lag screw which provides interfragmentary compression
-b. Fracture orientations = oblique or spiral
-c. Fixation stability = absolute
-d. Bone healing = primary
-2. Compression
-a. Plate maintains compression at the fracture site
-b. Compression is generated by two mechanisms:
-i. External tension/compression device and push-pull screw
-ii. Plate design with oval holes and eccentric screw placement
-c. Fracture orientations = transverse or oblique
-i. Transverse fractures require slight prebending to prevent gapping at the opposite cortex of the plate
-ii. Oblique fractures require plate fixation to the fragment with the obtuse angle to create an axilla for the opposite fragment to lock into
-d. Fixation stability = absolute
-e. Bone healing = primary
-3. Buttress (antiglide)
-a. Plate functions to resist shear forces and displacement when a fragment is axially loaded
-i. Buttress plate = when applied to an intra-articular fractures
-ii. Antiglide plate = when applied to diaphyseal fractures
-b. Fracture orientations = intra-articular fractures that extend to the metaphyseal region (buttress) or oblique (antiglide)
-c. Fixation stability = absolute (often combined with lag screws)
-d. Bone healing = primary
-4. Tension band
-a. Plate applied to the tension (convex) side of an eccentrically loaded bone (e.g. femur, olecranon) converts bending moment into compression at the fracture site (functions as a
-door hinge)
-b. Fracture orientation = transverse or short oblique
-i. The compression side must be anatomically reduced without gapping
-c. Fixation stability = absolute
-d. Bone healing = primary
-5. Bridge
-a. Plate bridges/bypasses an area of comminution with fixation proximal and distal to fracture site
-i. Functions to maintain length, alignment and rotation while preserving soft tissue and blood supply at the fracture site
-ii. Recommended to choose a plate 3x as long as the fracture zone
-b. Fracture orientation = diaphyseal or metaphyseal comminution
-c. Fixation stability = relative
-d. Bone healing = secondary
-
-What is the definition of a screw?
- 1. Mechanical device that converts torque into compression (between plate and bone or two bone fragments)
-2. Mechanical device that converts rotation into linear motion
-
-What are the operative options for lateral condyle fractures?
- 1. CRPP
+What is the management of pediatric tibia shaft fractures? [JAAOS 2005;13:345-352] [JAAOS 2019;27:769-778]
+ 1. Nonoperative
+a. Long leg cast for 4-6 weeks, then short leg cast for 4-6 weeks (PTB cast if proximal shaft)
+b. Indications
+i. Nondisplaced fractures
+ii. Displaced fractures with acceptable closed reduction
+1. Age >8
+a. < 5° varus/valgus
+b. < 5° sagittal malalignment
+c. < 1cm of shortening
+d. < 50% translation
+2. Age <8
+a. < 10° varus/valgus
+b. < 10° sagittal malalignment
+c. < 1cm shortening
+d. 100% translation
+iii. Toddler fracture
+1. 4 weeks immobilization
+2. Operative
 a. Indications
-i. Displacement >2mm but <4mm (Weiss type 2)
-1. Usually associated with intact articular cartilage
-ii. No notable malrotation
-iii. Nondisplaced fractures that displace after nonoperative treatment
-b. Technique
-i. Closed reduction performed with forearm supinated, elbow extended, varus stress to elbow followed by fragment manipulation anteromedially
-ii. Reduction confirmed with fluoro +/- arthrogram
-iii. Two parallel or slightly divergent K-wires plus a transverse pin to control rotation
-1. Leave K-wires out of skin rather than buried as it is more cost effective and has less long term complications
-c. Postoperative care
-i. K-wires removed at 4 weeks following surgery followed by casting for 2-4 weeks
-2. Open reduction
+i. Open fractures, polytrauma, floating knee, some segmental fractures, severe swelling, concern for compartment syndrome, vascular injury, unstable fractures not maintained by nonoperative means
+b. What are the surgical options for the management of tibial diaphyseal fractures?
+i. Uniplanar and multiplanar external fixation
+1. Indications
+a. High energy unstable fractures
+b. Soft tissue injury
+ii. Compression plating
+1. Indications
+a. Low-grade open fractures with simple pattern (soft tissue dissection and exposure already performed)
+1. Indications
+a. Open (potentially closed) comminuted or segmental fractures (patterns otherwise difficult to maintain reduction with flexible nails or external fixation)
+2. Technique
+a. Two small incisions are made proximal and distal to the fracture site on the lateral side of the tibia, using blunt dissection to the periosteum to minimize inadvertent damage to the peroneal nerve. A 3.5-mm or 4.5-mm LCP is then advanced in the submuscular plane and secured with at least percutaneous three locking screws proximal and distal to the fracture site
+iv. Elastic stable intramedullary nailing
+1. Indications
+a. Closed fractures not amenable to cast treatment
+2. Advantages
+a. Extraphyseal, allows early WB, early activity and join mobility, minimally invasive, allows monitoring of soft tissue and compartments
+
+What indicators during the history should raise suspicion of NAT? [JAAOS 2020;28:53-65]
+ 1. No/vague explanation for a significant injury
+2. Denial of trauma in setting of significant bony injury
+3. Mechanism of injury not consistent with fracture type, energy associated with fracture or severity of injury
+4. Injury inconsistent with the child's physical and/or developmental capabilities
+5. Inconsistent history across caregivers or changing histories provided by caregivers
+6. Different witnesses with different explanations
+7. Injuries resulting from a family/domestic violence incident
+8. Previous history of inflicted trauma
+9. Witnessed inappropriate behavior to a child placing them at risk of NAT 10. Delay in seeking care for injury
+
+How are pediatric physeal fractures classified? [CORR 2016; 474(11):2531-2537]
+ 1. Salter-Harris Classification
+a. Type I - fracture extends through the physis separating the epiphysis from the metaphysis b. Type II - fracture enters in the plane of the physis and exits through the metaphysis
+i. Most common type
+ii. Separate metaphyseal fragment created is known as a Thurston-Holland fragment
+c. Type III - fracture enters in the plane of the physis and exits through the epiphysis
+d. Type IV - fracture crosses the physis, extending from the metaphysis to the epiphysis
+e. Type V - crush fracture of the physis
+2. Modifications
+a. Rang (1968)
+i. Type VI - damage to the perichondral ring as a result of an open injury b. Peterson (1994)
+i. Type I - transmetaphyseal with extension into the physis
+ii. Type VI - loss of part of the physis and typically is described as an open "lawnmower" type of injury
+
+What is the management of pediatric radial neck fractures? [J Pediatr Orthop 2012;32:S14-S21]
+ 1. Nonoperative
+a. 2-3 weeks in cast followed by progressive ROM
+b. Indications
+i. < 30° angulation and <2mm translation
+ii. Full pronation and supination
+2. Closed reduction
 a. Indications
-i. Displacement ≥4mm (Weiss type 3)
-1. Usually associated with articular cartilage disruption
-ii. Fragment malrotation
-iii. Failed closed reduction
+i. Unacceptable angulation
+ii. Block to supination or pronation
+b. Techniques
+i. Patterson - hold the elbow in extension and apply distal traction with the forearm supinated and pull the forearm into varus while applying direct pressure over the radial head
+ii. Israeli - with elbow flexed 90 and forearm in supination apply thumb pressure to anterolateral radial head while forearm is gradually taken into pronation
+iii. Esmarch - wrap forearm distal to proximal while holding elbow in varus
+3. Percutaneous reduction
+a. Indications
+i. Failed closed reduction after limited number of attempts
+b. Techniques
+i. K-wire joystick technique
+1. Leverage technique - pin is inserted into the fracture site and levered into position
+2. Push technique - blunt end of large K-wire is pushed against the posterolateral aspect of the radial head
+ii. Metaizeau technique
+1. A thin flexible nail or smooth wire with a curved tip is inserted from the distal radius into the intramedullary canal of the radius. The tip of the flexible nail is advanced to the fracture site and into the radial head. The nail is then rotated to rotate the radial head onto the shaft
+4. Open reduction
+a. Indications
+i. Failed closed and percutaneous reduction attempts
+ii. Gap at fracture site after reduction (indicates soft tissue interposition)
 b. Technique
-i. Kocher interval (anconeus and ECU)
-ii. Avoid posterior and distal dissection (risk of fragment AVN)
-iii. Anatomic reduction under direct visualization with fluoro confirmation
-iv. Fixation
-1. K-wire OR Partially threaded screw
-c. Postoperative care
-i. K-wires removed at 4 weeks following surgery followed by casting for 2-4 weeks
+i. Lateral approach
+ii. 1-2 K-wires from radial head (non-articular zone) to radial metaphysis
 
-What are the biomechanics of an intramedullary nail?
- 1. Stiffness depends on:
-a. Diameter - stiffness is proportional to the radius to the 4th power (increased diameter = increased stiffness)
-b. Material - stainless steel is stiffer than titanium
-c. Wall thickness
-d. Slotted vs. non-slotted - slotted nail is less stiff
-2. Typically, a load sharing device (except in comminuted fractures it becomes load bearing)
-3. Goal is to restore length, alignment and rotation (anatomic reduction is not the goal)
-4. Nails resist bending moments but not compression or torsion
-5. Interlocking screws function to resist compression and torsion
-6. Fixation stability = relative
-7. Bone healing = secondary
+When is a skeletal survey indicated according to the American Academy of Pediatrics? [JAAOS 2020;28:53-65]
+ 1. Indicated in the evaluation of a suspicious injury in any child younger than 2 years
+a. Recommends this study be repeated in 2 to 3 weeks to assess for healing of non- or minimally displaced injuries (such as rib fractures) or better distinguish normal variants from healing injuries
 
-What is the definition of 'screw pullout'?
- 1. Definition - the maximum force that a screw can withstand along its axis
-2. Pullout force increases with larger outer diameter, smaller inner diameter, finer pitch, more engaged threads and greater density of bone
+What is the management of acute pediatric Monteggia fracture? [Orthobullets]
+ 1. Nonoperative
+a. Bado I, II and III
+b. Technique
+i. Closed reduction
+1. Successful when ulnar length is restored, pattern is length stable and radial head reduces spontaneously
+2. Operative
+a. Bado I, II, and III with failed closed reduction
+b. Length unstable ulnar fracture
+c. Bado IV
+d. Technique
+i. Intramedullary nail for length stable patterns
+ii. Plate fixation for length unstable/comminuted patterns
+e. Note - annular ligament reconstruction is rarely indicated with restoration of ulnar length
 
-What is recommended for bridge plating? [JAAOS 2016;24:711-719]
- 1. Opt for titanium when possible
-2. Longer plates preferred
-3. Longest plate that is anatomically feasible
-4. Minimum 2-3x the length of comminuted fractures
-5. Less than 50% screw fill
-6. ≤4 diaphyseal screws
-7. Increase working length
+What are three common mechanisms of injury? [JAAOS 2016;24:e39-e44]
+ 1. Birth injury
+2. Nonaccidental trauma
+3. FOOSH
 
-Describe the surgical fixation of a medial epicondyle fracture? [JAAOS 2012;20:223-232]
- 1. Supine
-2. Tourniquet and Esmarch
-3. Medial incision just anterior to the medial epicondyle
-4. Identify fragment and ulnar nerve
-a. Ulnar nerve does not need to be released - protect throughout with blunt retractor 5. Reduction with "milking" technique
-a. Flex wrist, supinate forearm, flex elbow and apply Esmarch from distal to proximal
-6. Place wire through medial epicondyle fragment from inside out
-7. Use wire to reduce fracture to distal humerus site and hold with additional small wire or 18 gauge needle
-8. Drill and advance a 4.0mm partially threaded cannulated screw with washer up the medial column
-a. Avoid bicortical fixation, avoid olecranon fossa
-b. Usual length is 35-40mm
+What is the definition of nonaccidental trauma (NAT)? [JAAOS 2020;28:53-65]
+ 1. The Child Abuse Prevention and Treatment Act (American)
+a. "Any recent act or failure to act on the part of a parent or caretaker which results in death, serious physical or emotional harm, sexual abuse or exploitation; or an act or failure to act, which presents an imminent risk of serious harm."
 
-What are the recommended pin placement sites and size in respective bones for Monolateral/Unilateral External Fixation? [JAAOS 2015;23:683-690]
- 1. Humerus = 5mm pins placed anterolaterally (avoid axillary n, radial n, and olecranon fossa)
-2. Ulna = 4mm pin proximally and 3mm pin distally along subcutaneous border (preferred over radius)
-3. Radius = 4mm pin along radial border (posterior to radial artery and superficial radial n)
-4. 2nd metacarpal = 3mm pin entering radial border of 2nd MC base
-1. Flex fingers at time of pin insertion, avoids entrapment of extensor tendon which would prevent finger flexion
-5. Femur = 5 or 6mm pins placed anterolaterally or direct lateral
-6. Tibia = 5 or 6mm pins placed anteromedial
-7. Calcaneus = 5mm pin placed medial to lateral in safe zone (posterior to the halfway point from the posteroinferior calcaneus to the inferior medial malleolus and posterior to the one-third mark from the posteroinferior calcaneus to the navicular tuberosity)
-1. Structures at risk = calcaneal nerve (medial), sural nerve (lateral)
-8. Foot = 3 or 4mm pin medially into the talar neck, cuneiforms, or first metatarsal base, or laterally into the cuboid or fifth metatarsal base. For cuneiform pin placement, the pin should enter the dorsal half of the medial cuneiform
+What are the general principles of treatment of pediatric hip fractures? [JAAOS 2009;17:162-173]
+ 1. Fracture stability is more important than preservation of the physis
+2. Transphyseal screw fixation is the most stable and is recommended for most fractures
+3. Physis-sparing fixation is less stable (recommended only in children <4 to 6)
+4. Fracture fixation is dependent on patient age, patient size and skeletal maturity
+5. Capsular decompression should be performed after fracture reduction and fixation
+6. Spica cast use is dependent on fracture type, fracture fixation and patient size
 
-What are the types of screw design?
- 1. Fully threaded, partially threaded, cannulated, self-tapping, locking, nonlocking
+What complications are associated with pediatric hip fractures? [JAAOS 2009;17:162-173] [JAAOS 2018;26:411-419]
+ 1. Osteonecrosis (most common)
+a. What are the predictors for osteonecrosis?
+i. Fracture type
+1. Type IB = highest risk (100%)
+2. Type I > Type II > Type III > Type IV
+3. Reported rates of osteonecrosis according to the Delbet classification are 38% to 50% for type I, 28% for type II, 8% to 18% for type III, and 5% to 10% for type IV.
+ii. Older patient
+1. Age >10
+iii. Displaced fractures
+b. What is the Ratliff classification of osteonecrosis?
+i. Type I = entire femoral head
+ii. Type II = segments of femoral head
+iii. Type III = femoral neck
+2. Coxa vara
+a. Femoral neck shaft angle <120
+3. Premature physeal closure
+a. Can lead to coxa valga or vara (asymmetric arrest)
+b. Can lead to LLD
+4. Nonunion
+a. Up to 10%
+b. Most common in Type II
+c. Management is a valgus osteotomy
+5. Chondrolysis
+6. Infection
+7. Posttraumatic SCFE
+8. Overgrowth of the femoral shaft
 
-What is the purpose of tapping prior to screw insertion?
- 1. Necessary for cortical bone (and dense cancellous bone) so that the torque is converted to compression rather than overcoming friction between screw and bone
-2. Failure to tap can result in shear failure at the head shaft junction
+What are the features of a toddler fracture? [JAAOS 2005; 13:345-352]
+ 1. Minimally displaced, short spiral or oblique fracture of the tibia shaft without fracture of the fibula
+2. Caused by low energy twist or fall
 
-What are the pin mechanics in a Monolateral/Unilateral External Fixation?
- 1. Pin stiffness increases with increasing diameter
-a. Too large = increases risk of fracture (pin >30% of bone diameter substantially increases the risk of pin site fracture)
-b. Too small = increases micromotion at pin-bone interface (leading to failure)
+What is the management of chronic pediatric Monteggia fracture? [Instr Course Lec 2015; 64:493] [JBJS REVIEWS 2018;6(6): e2]
+ 1. Ulnar osteotomy
+a. Osteotomy at point of maximum angulation
+i. Gains length
+ii. Redirects radial head to capitellum (apex of ulnar osteotomy correction should point to the direction you want the radial head to go)
+iii. Fixed with plate-and-screw
+2. Radial head reduction
+a. Initially, attempt to reduce radial head into intact annular ligament
+b. If unsuccessful, pie-crust annular ligament and attempt second reduction
+c. If unsuccessful, incise annular ligament and repair around radial neck following reduction
+3. +/- annular ligament repair/reconstruction
+a. Indicated of ulnar osteotomy reassessed and determined to be adequate or optimized and
+radial head still unstable
+b. Bell Tawse technique - lateral triceps tendon utilized to reinforce/reconstruct annular ligament
 
-What are the two general types of external fixation?
- 1. Monolateral/unilateral external fixation- frames are positioned on one side of the limb
-2. Circular external fixation
+What are nonorthopedic manifestations of child abuse? [JAAOS 2000;8:10-20]
+ 1. Bruises
+a. Suggestive locations include perineum, buttock, genitalia, trunk, back of legs, back of head
+b. Suggestive patterns include well-demarcated, circumferential, symmetric
+c. Multiple and in different stages of healing
+2. Bite marks
+3. Patterned injury (e.g. loop injury, hand print, stocking glove)
+4. Skull fractures
+a. Suggestive types include multiple, crossing suture lines, depressed, bilateral, skull base
+5. Retinal or subconjunctival hemorrhages
+6. Subdural hematoma
+7. Visceral injury
+8. Intra-oral injury
 
-What are the surgical options? [JAAOS 2015;23:77-86]
- 1. CRPP - 2-3 lateral pins
+What are the complications associated with pediatric tibial tubercle avulsion fractures? [JAAOS 2015;23:571-580]
+ 1. Genu recurvatum
+a. Rare as most injuries occur as growth is slowing down
+2. Compartment syndrome
+a. Anterior tibial recurrent artery at risk
+3. Hardware irritation
 
-What is the difference between a nonlocking vs. locking screw?
- 1. Locking screws have large core diameter with shallower threads which maximize fatigue strength; screw head has threads that engage threads in a locking plate hole creating a fixed angle
-2. Nonlocking screws have smaller core diameters with deeper threads which maximizes purchase power
+What is the management of pediatric hip fractures based on the Delbet classification? [JAAOS 2018;26:411-419]
+ 1. Type IA
+a. Age <2 = closed reduction spica cast
+b. Age 2-9 = 2 smooth pins and spica cast
+c. Age ≥10 = transphyseal fixation
+2. Type IB
+a. Open reduction
+3. Type II and III
+a. Age <6 = closed reduction and spica casting
+i. +/- supplemental fixation in patients ≥2 years in spica cast
+ii. Acceptable reduction Type II = < 5° angulation and <2mm cortical translation
+iii. Acceptable reduction Type III = < 10° angulation (varus more common)
+b. Displaced fractures (if unable to be managed by closed reduction)
+i. < 4 years = smooth K wires
+ii. 4-9 years = physeal sparing cannulated screws
+iii. >10 years = Transphyseal cannulated screws, proximal locking plate (unstable patterns)
+4. Type IV
+a. Age <6 = closed reduction and spica casting
+i. +/- supplemental fixation in patients ≥2 years in spica cast
+ii. Acceptable reduction Type IV = < 10° angulation
+b. Age >6 = stabilization with a pediatric sliding hip screw, blade plate, or proximal femoral locking plate
+i. < 10 years consider physeal sparing screw
+ii. >10 years consider transphyseal screw
+
+What is the most common classification of pediatric proximal humerus fractures? [JAAOS 2015;23:77- 86]
+ 1. Neer and Horwitz Classification
+a. Grade I - < 5mm displacement
+b. Grade II - < 1/3 of the shaft width
+c. Grade III - 2/3 of the shaft width
+d. Grade IV - >2/3 of the shaft width
+
+What are the orthopedic manifestations of child abuse? [JAAOS 2000;8:10-20] [JAAOS 2020;28:53-65]
+ 1. Long bone fractures in nonambulatory child
+2. Multiple fractures in various stages of healing
+a. Occurs in 70% of abused children less than 1 year of age and more than 50% of all abused children
+3. Rib fractures (posterior and posterolateral)
+4. Transphyseal fracture of the distal humerus
+5. Metaphyseal 'corner fracture' or 'bucket handle fracture'
+a. Metaphyseal corner fractures are Salter-Harris II fractures where the "Thurston- Holland" fragment can, depending on the angle of the radiograph, appear like a "corner" or "avulsion" fracture
+6. Vertebral compression fractures
+7. Spinous process avulsions
+
+What is the classification of pediatric tibial tubercle avulsion fractures? [J Child Orthop. 2008; 2(6): 469-474] [JAAOS 2015;23:571-580]
+ 1. Type I - junction of the distal and proximal apophysis
+a. Type IA = nondisplaced/minimally displaced
+b. Type IB = displaced and hinged at junction
+c. Type IC = patellar tendon periosteal sleeve avulsion
+2. Type II - junction of tibial tubercle and proximal epiphysis
+a. Type IIA = not comminuted
+b. Type IIB = comminuted
+3. Type III - extend intra-articular
+a. Type IIIA = not comminuted
+b. Type IIB = comminuted
+4. Type IV - fracture of the tibial tuberosity that extends posteriorly along the proximal tibial physis creating an avulsion of the entire proximal epiphysis
+5. Type V - extends intra-articular and posteriorly along physis of proximal tibia ('Y' pattern)
+1. Ogden modification of Watson-Jones classification was from Type I-III with subclassification A/B
+2. Frankl added type IC, Ryu and Debenham added type IV, McKoy and Stanitski added type V
+
+What is the management of pediatric proximal humerus fractures? [JAAOS 2015;23:77-86]
+ 1. Nonoperative
+a. Birth fractures
+b. Grade I and II
+2. Operative
+a. Grade I and II with open fractures, vascular injury or polytrauma
+b. Grade III and IV
+i. Controversial
+1. Generally, surgical indications include:
+a. Age >11
+b. Neuromuscular disorders
+c. Nerve palsies
+d. Anticipated deformity after fracture healing
+e. Irreducible fracture dislocation
+ii. No consensus on acceptable angulation
+
+Where do pediatric physeal fractures occur within the physis (histologically)? [CORR 2016; 474(11):2531-2537]
+ 1. Zone of provisional calcification
+a. Located in the zone of hypertrophy - represents a transitional point between calcified and noncalcified extracellular matrix
+
+What are the 3 most common sites for lower extremity skeletal traction? [JAAOS 2016;24:600-606]
+ 1. Distal femur
+a. Indications - acetabular fractures not involving the weightbearing dome, pelvic fractures
+with a displaced hemipelvis, adult proximal third femur fracture, pediatric femoral shaft fracture (90/90 traction), any contraindication to a proximal tibia pin
+b. Pin location - placed from medial to lateral, >0.7 cm proximal to the adductor tubercle near the metaphyseal flare (avoids joint and femoral artery in the adductor hiatus)
+2. Proximal tibia
+a. Indications - femoral fractures located in the distal 2/3 of the shaft
+b. Contraindications - ligamentous knee injuries, tibial plateau fractures, TKA with a long- stemmed implant
+c. Pin location - placed from lateral to medial, 2.5cm posterior and 2.5cm distal to the tibial tubercle parallel to the joint
+3. Calcaneus
+a. Indications - tibial shaft fractures, distal tibia fractures, subtalar dislocation, intra-op distraction during ankle arthroscopy
+b. Pin location - placed medial to lateral, safe zone is 3.1cm radius around the posterior inferior calcaneus
+
+What are the advantages of plate osteosynthesis in the treatment of pediatric forearm fractures? [JAAOS 2016;24:780-788]
+ 1. Rigid fixation
+2. Anatomic reduction
+3. Early range of motion
+4. Complete correction of malrotation and restoration of radial bow
+
+What are the indications for surgery in pediatric medial epicondyle fractures? [JAAOS 2012;20:223-232]
+ 1. Open fractures
+2. Failed closed reduction of an incarcerated medial epicondyle
+3. Ulnar nerve dysfunction (relative)
+4. Valgus elbow instability (relative)
+5. High demand upper extremity function (relative)
+6. Displacement >5mm (relative)
+
+What are the proposed mechanisms of injury? [JAAOS 2012;20:223-232]
+ 1. Direct trauma
+2. FOOSH - elbow extension, wrist extension, forearm supination and elbow valgus a. Flexor pronator avulsion
+3. Elbow dislocation (usually posterolateral)
+a. UCL avulsion
+
+When is cast wedging acceptable in the management of pediatric forearm fractures? [JAAOS 2016;24:780-788]
+ 1. Early loss of reduction
+2. Midshaft and distal shaft fractures displaced 5-10° above acceptable limits
+
+What is the definition of a pediatric Monteggia fracture? [Orthobullets]
+ 1. Proximal ulna fracture OR plastic deformation of the ulna
+2. Radial head dislocation
+
+What is the management of pediatric ACS? [JAAOS 2017;25:358-364]
+ 1. Emergent decompressive fasciotomy
+2. Myonecrosis should not be debrided at time of fasciotomy
+a. Muscle recovery is more robust than adults
+b. Myonecrosis has an 8-fold increased risk of functional deficit
+3. Wound closure should be delayed
+a. VAC may eliminate need for split thickness skin grafts
+4. Delayed diagnosis still warrants decompression
+a. In presence of tissue and nerve damage a fasciotomy is warranted due to children's potential for recovery
 

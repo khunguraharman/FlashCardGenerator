@@ -149,6 +149,6 @@ def create_cloze_cards(pairs: list[tuple[str, str]]) -> None:
     file_path = createResultsFile("final_cloze_card_strings.txt")
     with open(file_path, "w", encoding="utf-8") as f:
         for card in completed_cloze_cards:
-            f.write(card + "\n")
+            f.write(card + "\n\n")
 
     return
