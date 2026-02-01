@@ -1,0 +1,14 @@
+The {{c1::arthroscopic technique}} offers advantages such as {{c2::decreased morbidity}}, {{c3::earlier mobilization}}, and {{c4::shorter hospital stay}}, but it is {{c5::technically challenging}} and may result in {{c6::potentially longer surgical times}}.
+
+Screw fixation is a {{c1::simple}} method that {{c2::directly reduces and compresses}} the fragment, but it carries risks such as {{c3::iatrogenic fracture of the fragment}} and a {{c4::high risk of secondary surgery for screw removal}}.
+
+The acceptable proximal shaft angulation is {{c1::15°}} for girls aged {{c2::8}} years or younger and boys aged {{c3::10}} years or younger, while it is {{c4::10°}} for girls older than {{c5::8}} years and boys older than {{c6::10}} years.
+
+The {{c1::open technique}} offers the advantage of {{c2::direct visualization}} but has the disadvantage of {{c3::increased scarring}}.
+
+Suture fixation is advantageous for fixing {{c1::small or comminuted fragments}} but is {{c2::technically challenging}}.
+
+The distal shaft angulation is {{c1::15°}} for girls aged {{c2::8 years or younger}} and boys aged {{c3::10 years or younger}}, as well as for girls older than {{c4::8 years}} and boys older than {{c5::10 years}}.
+
+The acceptable midshaft angulation is {{c1::15°}} for girls aged {{c2::8}} years or younger and boys aged {{c3::10}} years or younger, while it is {{c4::10°}} for girls older than {{c5::8}} years and boys older than {{c6::10}} years.
+

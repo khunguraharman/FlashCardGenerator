@@ -32,7 +32,7 @@ class BasicAnkiCard(AnkiCard):
     front: str
     back: list[str]
 
-    EXLCUDE_NOTES: ClassVar[str] = "NOTE:"
+    EXLCUDE_NOTES: ClassVar[str] = "NOTE:"    
     def __post_init__(self) -> None:
         self.id = make_id_from_question(self.front)
 
@@ -48,6 +48,7 @@ class RawClozeAnkiCard:
 
     TABLE_TO_SKIP: ClassVar[TableLocation] = TableLocation(page=-1, table_index=-1)
     MULTI_PAGE_TABLES: ClassVar[dict[int,int]] = {172: 173, 186: 187, 225: 226, 551: 552}
+    EXCLUDE_STRINGS: ClassVar[set[str]] = {"What are the advantages and disadvantages of arthroscopic vs. open and screw vs. suture fixation? [JAAOS 2018;26:360-367]", "Advantages", "Disadvantages"}
 
 @dataclass
 class ClozeAnkiCard(AnkiCard):

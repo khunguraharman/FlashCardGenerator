@@ -3,7 +3,7 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult, ParagraphRole
 import os, json, re
 from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard, TableLocation
-from ProcessResults import write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception, process_exception_table_one, process_footer_headers
+from ProcessResults import handle_pediatric_approach_table, write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception, process_exception_table_one, process_footer_headers
 
 # this functions helps viaualize the document structure
 def analyze_document() -> None:
@@ -14,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="594-595"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="269"
         )
     result = poller.result()
 
@@ -63,6 +63,10 @@ def analyze_document() -> None:
         elif kind == "paragraphs":
             if (element_idx == 0 and not section_exception(result.paragraphs[idx].content)) or result.paragraphs[idx].content.startswith(BasicAnkiCard.EXLCUDE_NOTES):
                 continue
+
+            if result.paragraphs[idx].bounding_regions[0].page_number == 268:
+                if result.paragraphs[idx].content in RawClozeAnkiCard.EXCLUDE_STRINGS:
+                    continue
             
             paragraphs_to_print.append(result.paragraphs[idx].content.strip())
 
@@ -83,6 +87,10 @@ def analyze_document() -> None:
             # two multipage tables should be included as BasicAnkiCards, check if those exceptions are hit
             if result.tables[idx].bounding_regions[0].page_number == 589:
                 paragraphs_to_print.extend(process_exception_table_one(result.tables[idx], result.tables[idx+1], idx))
+                continue
+
+            if result.tables[idx].bounding_regions[0].page_number == 269:
+                tables_to_print.extend(handle_pediatric_approach_table(result.tables[idx]))
                 continue
 
             multi_page_table: bool = check_multi_page_table(result.tables, idx)
