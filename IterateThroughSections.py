@@ -3,7 +3,7 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult, ParagraphRole
 import os, json, re
 from AnkiCard import BasicAnkiCard, ClozeAnkiCard, RawClozeAnkiCard, TableLocation
-from ProcessResults import handle_pediatric_approach_table, write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception, process_exception_table_one, process_footer_headers
+from ProcessResults import handle_pediatric_approach_table, write_basic_cards, check_multi_page_table, write_cloze_cards, parse_ref, process_table, process_multi_page_table, section_exception, process_exception_table_one, process_footer_headers, create_set_title_pages
 
 # this functions helps viaualize the document structure
 def analyze_document() -> None:
@@ -17,6 +17,7 @@ def analyze_document() -> None:
             model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="239-240"
         )
     result = poller.result()
+    titlePages = create_set_title_pages(result.pages)
 
     sections = result.sections
 
@@ -33,6 +34,8 @@ def analyze_document() -> None:
 
     paragraphs_to_print: list[str] = []
     tables_to_print: list[list[str]] = []
+
+    current_section = ""
 
     while stack:
         section_idx, element_idx = stack.pop()
@@ -61,6 +64,11 @@ def analyze_document() -> None:
             if idx not in visited_sections:
                 stack.append((idx, 0))
         elif kind == "paragraphs":
+
+            if result.paragraphs[idx].bounding_regions[0].page_number in titlePages and result.paragraphs[idx].role == ParagraphRole.TITLE and result.paragraphs[idx].content.isupper():
+                current_section = result.paragraphs[idx].content
+                continue
+
             if (element_idx == 0 and not section_exception(result.paragraphs[idx].content)) or result.paragraphs[idx].content.startswith(BasicAnkiCard.EXLCUDE_NOTES):
                 continue
 
@@ -68,7 +76,7 @@ def analyze_document() -> None:
                 if result.paragraphs[idx].content in RawClozeAnkiCard.EXCLUDE_STRINGS:
                     continue
             
-            paragraphs_to_print.append(result.paragraphs[idx].content.strip())
+            paragraphs_to_print.append(result.paragraphs[idx].content.strip() + f"\t pg:{result.paragraphs[idx].bounding_regions[0].page_number} \t SECTION:{current_section}")
 
             if result.paragraphs[idx].bounding_regions[0].page_number == 594 and result.paragraphs[idx+1].role == ParagraphRole.PAGE_FOOTER:
                 # get the next table and it's index

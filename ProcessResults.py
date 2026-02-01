@@ -175,3 +175,10 @@ def handle_pediatric_approach_table(table) -> list[RawClozeAnkiCard]:
         return process_technique_table(table)
     else:
         return process_fixation_table(table)
+
+def create_set_title_pages(pages) -> set[int]:
+    titlePages : set[int] = set([])
+    for page in pages:
+        if len(page.lines) == 1 and page.lines[0].content.isupper():
+            titlePages.add(page.page_number)
+    return titlePages

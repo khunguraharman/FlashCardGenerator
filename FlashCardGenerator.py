@@ -76,5 +76,5 @@ def push_cloze_anki_card():
     return
 
 if __name__ == "__main__":
-    push_basic_anki_card()
+    #push_basic_anki_card()
     push_cloze_anki_card()
