@@ -30,6 +30,8 @@ def write_cloze_cards(content: list[RawClozeAnkiCard]) -> None:
         for card in content:
             for header in card.tableHeaders:
                 f.write(header + "\t")
+            f.write(card.section + "\t")
+            f.write(str(card.page))
             # create a new line
             f.write("\n")
             # repeat headers for each row
@@ -44,7 +46,7 @@ def parse_ref(ref: str) -> tuple[str, int]:
     _, kind, idx = ref.split("/")
     return kind, int(idx)
 
-def process_table(table) -> list[RawClozeAnkiCard]:
+def process_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
     all_fragments: list[RawClozeAnkiCard] = []
     cloze_fragments: list[str] = []
     headers: list[str] = []
@@ -57,10 +59,10 @@ def process_table(table) -> list[RawClozeAnkiCard]:
         if row == current_row:
             cloze_fragments.append(cell.content)
         else:
-            all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
+            all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
             cloze_fragments = [cell.content]
             current_row = row
-    all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
+    all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
     return all_fragments
 
 def merge_page_split_rows(table, next_table) -> list[RawClozeAnkiCard]:

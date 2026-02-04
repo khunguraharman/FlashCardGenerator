@@ -38,7 +38,7 @@ def push_basic_anki_card():
     batch_client.close()
     return
 
-def create_string_from_cloze_card(card: ClozeAnkiCard) -> str:
+def create_canonical_pairs_string(card: ClozeAnkiCard) -> str:
     canonical_pairs:str = ""
     for i in range(len(card.headers)):
         pair:str = f"{card.headers[i]}: {card.clozeDeletions[i]} \n"
@@ -63,13 +63,15 @@ def push_cloze_anki_card():
     search_endpoint = os.getenv("ai_search_url")
     ai_search_key = os.getenv("ai_search_key")
 
-    batch_client = SearchIndexingBufferedSender(endpoint = search_endpoint, index_name="cloze_rag", credential=AzureKeyCredential(ai_search_key))
+    batch_client = SearchIndexingBufferedSender(endpoint = search_endpoint, index_name="cloze_rag_v2", credential=AzureKeyCredential(ai_search_key))
     documents = []
     for card in cloze_anki_cards:
-        embedding_text = create_string_from_cloze_card(card)
-        response = client.embeddings.create(input = [embedding_text], model=aoai_deployment)
-        embedding:list[float] = response.data[0].embedding
-        documents.append( {"id": card.id ,"pairs": embedding_text, "vector_text_ada_large": embedding}) 
+        response_0 = client.embeddings.create(input= ["\n".join(card.headers)], model=aoai_deployment)
+        embedded_headers:list[float] = response_0.data[0].embedding
+        canonical_pairs = create_canonical_pairs_string(card)
+        response_1 = client.embeddings.create(input = [canonical_pairs], model=aoai_deployment)
+        embedded_canonical_pairs:list[float] = response_1.data[0].embedding
+        documents.append({"id": card.id ,"headers": "\n".join(card.headers), "vector_headers": embedded_headers, "pairs": canonical_pairs, "vector_pairs": embedded_canonical_pairs, "page": card.page, "section": card.section}) 
     batch_client.upload_documents(documents = documents)
     batch_client.flush()
     batch_client.close()

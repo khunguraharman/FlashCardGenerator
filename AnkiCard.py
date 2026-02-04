@@ -44,6 +44,8 @@ class TableLocation:
 @dataclass
 class RawClozeAnkiCard:
     tableHeaders: list[str]
+    section: str
+    page: int
     clozeFragments: list[str]
 
     TABLE_TO_SKIP: ClassVar[TableLocation] = TableLocation(page=-1, table_index=-1)
@@ -53,6 +55,8 @@ class RawClozeAnkiCard:
 @dataclass
 class ClozeAnkiCard(AnkiCard):
     headers: list[str] = field(default_factory=list)
+    section: str = field(default_factory=str)
+    page: int = field(default_factory=int)
     clozeDeletions: list[str] = field(default_factory=list)
     def __post_init__(self) -> None:
         normalized_headers = normalize_headers(self.headers)
@@ -89,11 +93,13 @@ def create_cloze_cards(doc_path: str) -> list[ClozeAnkiCard]:
     with open(doc_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
     for i in range(0, len(lines), 2):
-        headers: list[str] = lines[i].split('\t')
-        headers = headers[:-1]
+        reference: list[str] = lines[i].split('\t')
+        section = reference[-2]
+        page = int(reference[-1])
+        headers = reference[:-2]
         fragments = lines[i+1].split('\t')
         fragments = fragments[:-1]
-        anki_cards.append(ClozeAnkiCard(headers, clozeDeletions = fragments))
+        anki_cards.append(ClozeAnkiCard(headers, section, page, clozeDeletions = fragments))
     return anki_cards
 
 @dataclass

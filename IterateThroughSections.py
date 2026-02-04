@@ -14,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="239-240"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="40-123"
         )
     result = poller.result()
     titlePages = create_set_title_pages(result.pages)
@@ -65,7 +65,7 @@ def analyze_document() -> None:
                 stack.append((idx, 0))
         elif kind == "paragraphs":
 
-            if result.paragraphs[idx].bounding_regions[0].page_number in titlePages and result.paragraphs[idx].role == ParagraphRole.TITLE and result.paragraphs[idx].content.isupper():
+            if result.paragraphs[idx].bounding_regions[0].page_number in titlePages:
                 current_section = result.paragraphs[idx].content
                 continue
 
@@ -106,7 +106,7 @@ def analyze_document() -> None:
             if multi_page_table:
                 tables_to_print.extend(process_multi_page_table(result.tables[idx], result.tables[idx + 1]))
             else:
-                tables_to_print.extend(process_table(result.tables[idx]))
+                tables_to_print.extend(process_table(result.tables[idx], current_section, result.tables[idx].bounding_regions[0].page_number))
 
     write_basic_cards(paragraphs_to_print)
     write_cloze_cards(tables_to_print)
