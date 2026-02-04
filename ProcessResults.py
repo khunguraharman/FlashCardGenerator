@@ -181,6 +181,8 @@ def handle_pediatric_approach_table(table) -> list[RawClozeAnkiCard]:
 def create_set_title_pages(pages) -> set[int]:
     titlePages : set[int] = set([])
     for page in pages:
-        if len(page.lines) == 1 and page.lines[0].content.isupper():
+        if page.page_number == 179:
+            titlePages.add(page.page_number)
+        elif len(page.lines) == 1 and page.lines[0].content.isupper():
             titlePages.add(page.page_number)
     return titlePages
