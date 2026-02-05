@@ -65,10 +65,10 @@ def process_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
     all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
     return all_fragments
 
-def merge_page_split_rows(table, next_table) -> list[RawClozeAnkiCard]:
+def merge_page_split_rows(table, next_table, section: str, page: int) -> list[RawClozeAnkiCard]:
     first_page = table.bounding_regions[0].page_number
     second_page = next_table.bounding_regions[0].page_number
-    tmp_list = process_table(table)
+    tmp_list = process_table(table, section, page)
     columns = table.column_count            
     assert columns == next_table.column_count, f"table.column_count {table.column_count} != next_table.column_count {next_table.column_count} for pages {first_page}-{second_page}"
     rows = next_table.row_count
@@ -76,25 +76,25 @@ def merge_page_split_rows(table, next_table) -> list[RawClozeAnkiCard]:
         tmp_cloze_fragments: list[str] = []
         for j in range(columns):
             tmp_cloze_fragments.append(next_table.cells[i * columns + j].content)
-        tmp_list.append(RawClozeAnkiCard(tmp_list[0].tableHeaders, tmp_cloze_fragments))
+        tmp_list.append(RawClozeAnkiCard(tmp_list[0].tableHeaders, section, page, tmp_cloze_fragments))
     return tmp_list
 
-def process_multi_page_table(table, next_table) -> list[RawClozeAnkiCard]:
+def process_multi_page_table(table, next_table, section: str, page: int) -> list[RawClozeAnkiCard]:
     first_page = table.bounding_regions[0].page_number
     second_page = next_table.bounding_regions[0].page_number
     match first_page:
         case 172 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(172) == second_page:
-            tmp_list = process_table(table)
+            tmp_list = process_table(table, section, page)
             tmp_list[-1].clozeFragments[-3] += next_table.cells[0].content + " " + next_table.cells[3].content + " " + next_table.cells[6].content + " " + next_table.cells[7].content
             tmp_list[-1].clozeFragments[-2] += next_table.cells[1].content
             tmp_list[-1].clozeFragments[-1] += next_table.cells[2].content + " " + next_table.cells[5].content + " " + next_table.cells[8].content
             return tmp_list
         case 186 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(186) == second_page:
-            return merge_page_split_rows(table, next_table)
+            return merge_page_split_rows(table, next_table, section, page)
         case 225 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(225) == second_page:
-            return merge_page_split_rows(table, next_table)
+            return merge_page_split_rows(table, next_table, section, page)
         case 551 if RawClozeAnkiCard.MULTI_PAGE_TABLES.get(551) == second_page:
-            tmp_list = merge_page_split_rows(table, next_table)
+            tmp_list = merge_page_split_rows(table, next_table, section, page)
             tmp_list[1].clozeFragments[-1] += " " + tmp_list[2].clozeFragments[-1]
             del tmp_list[2]
             return tmp_list
@@ -151,32 +151,32 @@ def process_footer_headers(paragraph_one, paragraph_two, next_table, table_idx) 
         values.append(string)
     return values
 
-def process_technique_table(table) -> list[RawClozeAnkiCard]:
+def process_technique_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
     headers: list[str] = ["Technique", "Advantages", "Disadvantages"]
     all_fragments: list[RawClozeAnkiCard] = []
     for row in range(0, table.row_count):        
         cloze_fragments: list[str] = []
         for col in range(0, table.column_count):
             cloze_fragments.append(table.cells[row * table.column_count + col].content.strip())
-        all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
+        all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
     return all_fragments
 
-def process_fixation_table(table) -> list[RawClozeAnkiCard]:
+def process_fixation_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
     headers: list[str] = ["Fixation", "Advantages", "Disadvantages"]
     all_fragments: list[RawClozeAnkiCard] = []    
     for row in range(1, table.row_count):
         cloze_fragments: list[str] = []
         for col in range(0, table.column_count):
             cloze_fragments.append(table.cells[row * table.column_count + col].content.strip())
-        all_fragments.append(RawClozeAnkiCard(headers, cloze_fragments))
+        all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
     return all_fragments
 
-def handle_pediatric_approach_table(table) -> list[RawClozeAnkiCard]:
+def handle_pediatric_approach_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
     assert table.bounding_regions[0].page_number == 269
     if table.row_count == 2:
-        return process_technique_table(table)
+        return process_technique_table(table, section, page)
     else:
-        return process_fixation_table(table)
+        return process_fixation_table(table, section, page)
 
 def create_set_title_pages(pages) -> set[int]:
     titlePages : set[int] = set([])

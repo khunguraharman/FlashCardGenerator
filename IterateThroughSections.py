@@ -98,13 +98,13 @@ def analyze_document() -> None:
                 continue
 
             if result.tables[idx].bounding_regions[0].page_number == 269:
-                tables_to_print.extend(handle_pediatric_approach_table(result.tables[idx]))
+                tables_to_print.extend(handle_pediatric_approach_table(result.tables[idx], current_section, result.tables[idx].bounding_regions[0].page_number))
                 continue
 
             multi_page_table: bool = check_multi_page_table(result.tables, idx)
             #if multi page table, must prepare to skip next table
             if multi_page_table:
-                tables_to_print.extend(process_multi_page_table(result.tables[idx], result.tables[idx + 1]))
+                tables_to_print.extend(process_multi_page_table(result.tables[idx], result.tables[idx + 1], current_section, result.tables[idx].bounding_regions[0].page_number))
             else:
                 tables_to_print.extend(process_table(result.tables[idx], current_section, result.tables[idx].bounding_regions[0].page_number))
 
