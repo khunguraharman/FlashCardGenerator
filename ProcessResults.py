@@ -178,11 +178,11 @@ def handle_pediatric_approach_table(table, section: str, page: int) -> list[RawC
     else:
         return process_fixation_table(table, section, page)
 
-def create_set_title_pages(pages) -> set[int]:
-    titlePages : set[int] = set([])
+def create_set_title_pages(pages) -> dict[int, str]:
+    titlePages : dict[int, str] = {}
     for page in pages:
-        if page.page_number == 179:
-            titlePages.add(page.page_number)
+        if page.page_number == 179 or page.page_number == 547:
+            titlePages[page.page_number] = page.lines[0].content
         elif len(page.lines) == 1 and page.lines[0].content.isupper():
-            titlePages.add(page.page_number)
+            titlePages[page.page_number] = page.lines[0].content
     return titlePages

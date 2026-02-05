@@ -14,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="179-180"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="40-238"
         )
     result = poller.result()
     titlePages = create_set_title_pages(result.pages)
@@ -65,7 +65,7 @@ def analyze_document() -> None:
                 stack.append((idx, 0))
         elif kind == "paragraphs":
 
-            if result.paragraphs[idx].bounding_regions[0].page_number in titlePages:
+            if result.paragraphs[idx].bounding_regions[0].page_number in titlePages and titlePages[result.paragraphs[idx].bounding_regions[0].page_number] == result.paragraphs[idx].content:
                 current_section = result.paragraphs[idx].content
                 continue
 
