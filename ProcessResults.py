@@ -46,7 +46,32 @@ def parse_ref(ref: str) -> tuple[str, int]:
     _, kind, idx = ref.split("/")
     return kind, int(idx)
 
+def process_pg171_table(table, section: str, page:int) -> list[RawClozeAnkiCard]:
+    all_fragments: list[RawClozeAnkiCard] = []
+    cloze_fragments: list[str] = []
+    headers: list[str] = []
+    shift = 0;
+    #only works upto cell # 12
+    for row in range(0, table.row_count):
+        if row == 3:
+            shift = 3
+            continue
+        cloze_fragments: list[str] = []
+        for col in range(0, table.column_count):
+            if row == 0:
+                headers.append(table.cells[col].content.strip())
+                continue
+            else:
+                cloze_fragments.append(table.cells[row * table.column_count + col - shift].content.strip())
+                if row == 2 and col == 1:
+                    cloze_fragments[-1] += " " + table.cells[12].content.strip()
+        if row != 0:
+            all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
+    return all_fragments
+
 def process_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
+    if page == 171:
+        return process_pg171_table(table, section, page)
     all_fragments: list[RawClozeAnkiCard] = []
     cloze_fragments: list[str] = []
     headers: list[str] = []
