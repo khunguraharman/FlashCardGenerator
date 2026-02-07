@@ -14,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="172-173"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="40-177"
         )
     result = poller.result()
     titlePages = create_set_title_pages(result.pages)
