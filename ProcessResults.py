@@ -119,6 +119,10 @@ def process_table(table, section: str, page: int) -> list[RawClozeAnkiCard]:
             all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
             cloze_fragments = [cell.content]
             current_row = row
+    if page == 204:
+        headers[0] = "Characteristic"
+    elif page == 231:
+        headers[0] = "Symptom"
     all_fragments.append(RawClozeAnkiCard(headers, section, page, cloze_fragments))
     return all_fragments
 

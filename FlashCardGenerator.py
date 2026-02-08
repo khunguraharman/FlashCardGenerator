@@ -23,16 +23,17 @@ def push_basic_anki_card():
     search_endpoint = os.getenv("ai_search_url")
     ai_search_key = os.getenv("ai_search_key")
 
-    batch_client = SearchIndexingBufferedSender(endpoint = search_endpoint, index_name="test_rag", credential=AzureKeyCredential(ai_search_key))
+    batch_client = SearchIndexingBufferedSender(endpoint = search_endpoint, index_name="basic_rag", credential=AzureKeyCredential(ai_search_key))
     documents = []
     for card in basic_anki_cards:
+        response_q = client.embeddings.create(input = [card.front], model=aoai_deployment)
+        q_embedding:list[float] = response_q.data[0].embedding
+
         answer_text: str =  "\n".join(line.strip() for line in card.back if line.strip())
-        embedding_text = "\n".join([
-            f"Q: {card.front.strip()}",
-            "A:", answer_text])
-        response = client.embeddings.create(input = [embedding_text], model=aoai_deployment)
-        embedding:list[float] = response.data[0].embedding
-        documents.append( {"id": card.id ,"question": card.front, "answer": answer_text, "vector_text_ada_large": embedding}) 
+        response_a = client.embeddings.create(input = [answer_text], model=aoai_deployment)
+        ans_embedding:list[float] = response_a.data[0].embedding
+        documents.append( {"id": card.id ,"question": card.front, "vector_question": q_embedding,
+                           "answer": answer_text, "vector_answer": ans_embedding, "page": card.page, "section": card.section}) 
     batch_client.upload_documents(documents = documents)
     batch_client.flush()
     batch_client.close()
@@ -78,5 +79,5 @@ def push_cloze_anki_card():
     return
 
 if __name__ == "__main__":
-    #push_basic_anki_card()
-    push_cloze_anki_card()
+    push_basic_anki_card()
+    #push_cloze_anki_card()

@@ -14,7 +14,7 @@ def analyze_document() -> None:
     document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
     with open(doc_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
-            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="40-177"
+            model_id=model_id,body=AnalyzeDocumentRequest(bytes_source=f.read()), pages="40-178"
         )
     result = poller.result()
     titlePages = create_set_title_pages(result.pages)
@@ -76,7 +76,7 @@ def analyze_document() -> None:
                 if result.paragraphs[idx].content in RawClozeAnkiCard.EXCLUDE_STRINGS:
                     continue
             
-            paragraphs_to_print.append(result.paragraphs[idx].content.strip() + f"\t pg:{result.paragraphs[idx].bounding_regions[0].page_number} \t SECTION:{current_section}")
+            paragraphs_to_print.append(result.paragraphs[idx].content.strip() + f"\t{current_section} \t{result.paragraphs[idx].bounding_regions[0].page_number}")
 
             if result.paragraphs[idx].bounding_regions[0].page_number == 594 and result.paragraphs[idx+1].role == ParagraphRole.PAGE_FOOTER:
                 # get the next table and it's index

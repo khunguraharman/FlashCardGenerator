@@ -31,8 +31,10 @@ class AnkiCard:
 class BasicAnkiCard(AnkiCard):
     front: str
     back: list[str]
+    section: str = field(default_factory=str)
+    page: int = field(default_factory=int)
 
-    EXLCUDE_NOTES: ClassVar[str] = "NOTE:"    
+    EXLCUDE_NOTES: ClassVar[str] = "NOTE"
     def __post_init__(self) -> None:
         self.id = make_id_from_question(self.front)
 
@@ -76,15 +78,24 @@ def create_basic_cards(doc_path: str) -> list[BasicAnkiCard]:
     anki_cards = []
     with open(doc_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
-    front = lines[0]
+    reference: list[str] = lines[0].split('\t')
+    section = reference[-2]
+    page = int(reference[-1])
+    front = reference[0]
     back = []
     for line in lines[1:]:
         first_char = line[0]
         if not is_front_of_card(first_char):
             back.append(line)
         else:
-            anki_cards.append(BasicAnkiCard(front, back))
-            front = line
+            if front == "What advanced imaging is indicated for better assessment of SC joint injuries? [JAAOS 2011;19:1-7] 1. CT scan	TRAUMA 	49":
+                continue
+            if len(back) > 0 and front != "":
+                anki_cards.append(BasicAnkiCard(front, back, section, page))
+            reference: list[str] = line.split('\t')
+            section = reference[-2]
+            page = int(reference[-1])
+            front = reference[0]
             back = []
     return anki_cards
 
