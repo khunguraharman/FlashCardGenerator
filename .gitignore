@@ -437,3 +437,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+env.sh
