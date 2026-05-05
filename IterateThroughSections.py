@@ -35,7 +35,7 @@ def analyze_document() -> None:
     paragraphs_to_print: list[str] = []
     tables_to_print: list[list[str]] = []
 
-    current_section = ""
+    current_section = "ORTHO_REVIEW"
 
     while stack:
         section_idx, element_idx = stack.pop()
